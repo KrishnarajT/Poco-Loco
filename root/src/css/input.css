@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 body {
 	height: 100vh;
 	background-color: #4158d0;
@@ -40,18 +40,20 @@ body {
 }
 
 .poco {
-	position: absolute;
-    top: 50%;
-    left: 35%;
-	font-size: 1rem;
+	position: fixed;
+    /* top: 50%; */
+    /* left: 35%; */
+	font-size: 2rem;
 	font-weight: 600;
 	color: #211366;
-	font-family: "Raleway", serif;
+	font-family: "Pacifico", cursive;
+    animation: bring-poco 7s infinite ;
+    animation-timing-function: cubic-bezier(0,1.32,1,-0.29)
 }
 
 .poco h2 {
 	color: #442e83;
-	font-size: 4em;
+	font-size: 5em;
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
@@ -63,21 +65,25 @@ body {
 
 .poco h2:nth-child(2) {
 	color: #1a0645;
-	animation: animate-poco 4s ease-in-out infinite;
+	animation: animate-poco 5s infinite;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .loco {
-	position: absolute;
-    top: 50%;
+	position: fixed;
+    /* top: 50%; */
     right: 35%;
-	font-size: 1rem;
+	font-size: 2rem;
 	font-weight: 600;
 	color: #1a0645;
-	font-family: "Raleway", serif;}
+	font-family: "Pacifico", cursive;
+    animation: bring-loco 7s infinite ;
+    animation-timing-function: cubic-bezier(0,1.32,1,-0.29)
+}
 
 .loco h2 {
 	color: #1a0645;
-	font-size: 4em;
+	font-size: 5em;
 	position: absolute;
 	transform: translate(-50%, -50%);
 }
@@ -92,6 +98,31 @@ body {
 	animation: animate-loco 3s ease infinite reverse;
 }
 
+@keyframes bring-poco{
+    0%{
+        top : -20vh;
+    }
+    50%{
+        top: 100vh;
+    }
+    100%{
+        top: 120vh;
+        /* left: -50vw; */
+    }
+}
+@keyframes bring-loco{
+    0%{
+        top: 120vh;
+        /* left: -50vw; */
+    }
+    50%{
+        top: 100vh;
+    }
+    100%{
+        top : -20vh;
+    }
+}
+
 @keyframes animate-poco {
     0%,
 	100% {
@@ -103,8 +134,8 @@ body {
 			70% 61%,
 			84% 59%,
 			100% 52%,
-			100% 100%,
-			0% 100%
+			110% 110%,
+			0% 110%
 		);
 	}
 
@@ -116,9 +147,9 @@ body {
 			51% 62%,
 			67% 50%,
 			84% 45%,
-			100% 46%,
-			100% 100%,
-			0% 100%
+			110% 46%,
+			110% 110%,
+			0% 110%
 		);
 	}
 }
@@ -134,9 +165,9 @@ body {
 			54% 60%,
 			70% 61%,
 			84% 59%,
-			100% 52%,
-			100% 100%,
-			0% 100%
+			110% 52%,
+			110% 110%,
+			0% 110%
 		);
 	}
 
@@ -148,9 +179,9 @@ body {
 			51% 62%,
 			67% 50%,
 			84% 45%,
-			100% 46%,
-			100% 100%,
-			0% 100%
+			110% 46%,
+			110% 110%,
+			0% 110%
 		);
 	}
 }
