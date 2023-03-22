@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+body {
+	height: 100vh;
+	background-color: #4158d0;
+	background-image: linear-gradient(
+		43deg,
+		#4158d0 0%,
+		#c850c0 46%,
+		#70b7ff 100%
+	);
+
+	will-change: scroll-position;
+	background-size: 500%;
+	animation: gradient 10s ease-in-out 20 alternate-reverse;
+	overflow: hidden;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 100%;
+	}
+}
+
+.guitar-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+.guitar {
+	background-image: url("../../resources/images/SvgjsG1009.svg");
+	background-size: 10%;
+	will-change: animate;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 200vh;
+	width: 200vw;
+	animation: guitar 5s forwards;
+	animation-timing-function: cubic-bezier(1,-0.05,.86,.1);
+	z-index: -1;
+}
+
+@keyframes guitar {
+	0% {
+		background-size: 40%;
+		height: 30vh;
+		width: 30vw;
+	}
+	100% {
+		background-size: 150%;
+		height: 400vh;
+		width: 400vw;
+		transform: rotate(-30deg) translate(5vw, -8vh);
+		transition: transform ease-out;
+	}
+}
+
+.poco {
+	position: fixed;
+	top: 150vh;
+	left: 35%;
+	font-size: 2rem;
+	font-weight: 600;
+	color: #211366;
+	font-family: "Pacifico", cursive;
+	animation: bring-poco 5s;
+	animation-timing-function: cubic-bezier(0, 1.32, 1, -0.29);
+}
+
+.poco h2 {
+	color: #442e83;
+	font-size: 5em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.poco h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #1a0645;
+}
+
+.poco h2:nth-child(2) {
+	color: #1a0645;
+	animation: animate-poco 5s 20;
+	animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.loco {
+	position: fixed;
+	top: 150vh;
+	right: 35%;
+	font-size: 2rem;
+	font-weight: 600;
+	color: #1a0645;
+	font-family: "Pacifico", cursive;
+	animation: bring-poco 5s;
+	animation-timing-function: cubic-bezier(0, 1.32, 1, -0.29);
+}
+
+.loco h2 {
+	color: #1a0645;
+	font-size: 5em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.loco h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #1a0645;
+}
+
+.loco h2:nth-child(2) {
+	color: #1a0645;
+	animation: animate-loco 3s ease 20 reverse;
+}
+
+@keyframes bring-poco {
+	0% {
+		top: -20vh;
+		/* left: 35%; */
+	}
+	50% {
+		/* top: 100vh; */
+		/* left: 35%; */
+	}
+	100% {
+		top: 100vh;
+		/* left: -50vw; */
+	}
+}
+@keyframes bring-loco {
+	0% {
+		top: 120vh;
+		/* left: -50vw; */
+	}
+	50% {
+		top: 100vh;
+	}
+	100% {
+		top: -20vh;
+	}
+}
+
+@keyframes animate-poco {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			110% 110%,
+			0% 110%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			110% 46%,
+			110% 110%,
+			0% 110%
+		);
+	}
+}
+
+@keyframes animate-loco {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			110% 52%,
+			110% 110%,
+			0% 110%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			110% 46%,
+			110% 110%,
+			0% 110%
+		);
+	}
+}
