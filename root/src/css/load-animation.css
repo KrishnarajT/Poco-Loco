@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Rubik:wght@300&display=swap');
 body {
 	height: 100vh;
 	background-color: #4158d0;
-	background-image: linear-gradient(
-		43deg,
-		#4158d0 0%,
-		#c850c0 46%,
-		#70b7ff 100%
-	);
+	background-image: linear-gradient(43deg,
+			#4158d0 0%,
+			#c850c0 46%,
+			#70b7ff 100%);
 
 	will-change: scroll-position;
 	background-size: 500%;
@@ -16,10 +15,46 @@ body {
 	overflow: hidden;
 }
 
+#welcome {
+	font-family: 'Rubik', serif;
+	font-size: 6rem;
+	text-align: center;
+}
+
+/* Fade in and out */
+.welcome {
+	animation: fadeInOut 5s;
+	animation-timing-function: ease;
+}
+
+@keyframes fadeInOut {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.welcome-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0%;
 	}
+
 	100% {
 		background-position: 100%;
 	}
@@ -39,10 +74,10 @@ body {
 	will-change: animate;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 200vh;
-	width: 200vw;
+	height: 500vh;
+	width: 500vw;
 	animation: guitar 5s forwards;
-	animation-timing-function: cubic-bezier(1,-0.05,.86,.1);
+	animation-timing-function: cubic-bezier(1, -0.05, .86, .1);
 	z-index: -1;
 }
 
@@ -52,11 +87,12 @@ body {
 		height: 30vh;
 		width: 30vw;
 	}
+
 	100% {
-		background-size: 150%;
-		height: 400vh;
-		width: 400vw;
-		transform: rotate(-30deg) translate(5vw, -8vh);
+		background-size: 1000%;
+		height: 800vh;
+		width: 800vw;
+		transform: rotate(-50deg) translate(35vw, -100vh);
 		transition: transform ease-out;
 	}
 }
@@ -125,86 +161,85 @@ body {
 		top: -20vh;
 		/* left: 35%; */
 	}
+
 	50% {
 		/* top: 100vh; */
 		/* left: 35%; */
 	}
+
 	100% {
 		top: 100vh;
 		/* left: -50vw; */
 	}
 }
+
 @keyframes bring-loco {
 	0% {
 		top: 120vh;
 		/* left: -50vw; */
 	}
+
 	50% {
 		top: 100vh;
 	}
+
 	100% {
 		top: -20vh;
 	}
 }
 
 @keyframes animate-poco {
+
 	0%,
 	100% {
-		clip-path: polygon(
-			0% 45%,
-			16% 44%,
-			33% 50%,
-			54% 60%,
-			70% 61%,
-			84% 59%,
-			100% 52%,
-			110% 110%,
-			0% 110%
-		);
+		clip-path: polygon(0% 45%,
+				16% 44%,
+				33% 50%,
+				54% 60%,
+				70% 61%,
+				84% 59%,
+				100% 52%,
+				110% 110%,
+				0% 110%);
 	}
 
 	50% {
-		clip-path: polygon(
-			0% 60%,
-			15% 65%,
-			34% 66%,
-			51% 62%,
-			67% 50%,
-			84% 45%,
-			110% 46%,
-			110% 110%,
-			0% 110%
-		);
+		clip-path: polygon(0% 60%,
+				15% 65%,
+				34% 66%,
+				51% 62%,
+				67% 50%,
+				84% 45%,
+				110% 46%,
+				110% 110%,
+				0% 110%);
 	}
 }
 
 @keyframes animate-loco {
+
 	0%,
 	100% {
-		clip-path: polygon(
-			0% 45%,
-			16% 44%,
-			33% 50%,
-			54% 60%,
-			70% 61%,
-			84% 59%,
-			110% 52%,
-			110% 110%,
-			0% 110%
-		);
+		clip-path: polygon(0% 45%,
+				16% 44%,
+				33% 50%,
+				54% 60%,
+				70% 61%,
+				84% 59%,
+				110% 52%,
+				110% 110%,
+				0% 110%);
 	}
 
 	50% {
-		clip-path: polygon(
-			0% 60%,
-			15% 65%,
-			34% 66%,
-			51% 62%,
-			67% 50%,
-			84% 45%,
-			110% 46%,
-			110% 110%,
-			0% 110%
-		);
+		clip-path: polygon(0% 60%,
+				15% 65%,
+				34% 66%,
+				51% 62%,
+				67% 50%,
+				84% 45%,
+				110% 46%,
+				110% 110%,
+				0% 110%);
 	}
 }
