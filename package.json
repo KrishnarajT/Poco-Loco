@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "tw-elements": "^1.0.0-beta2"
   }
 }
