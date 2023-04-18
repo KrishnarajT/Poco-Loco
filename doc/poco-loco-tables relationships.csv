@@ -1,0 +1,7 @@
+"Constraint Name","Child Column","Parent Column"
+"artist_id_fk","songs_table.artist_id","artist_table.artist_id"
+"image_id_fk","songs_table.image_id","image_table.image_id"
+"song_id_fk","playlist_table.song_id","songs_table.song_id"
+"song_id_fk","image_table.song_id","songs_table.song_id"
+"song_id_fk","lyrics_table.song_id","songs_table.song_id"
+"user_id_fk","playlist_table.user_id","user_login.user_id"
