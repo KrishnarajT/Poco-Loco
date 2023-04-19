@@ -8,23 +8,36 @@ const connection = mysql.createConnection({
 	host: "35.200.182.124",
 	user: "Admin",
 	password: "4123",
-	database: "Poco-loco-db",
+	database: "pocoloco",
 });
 
 connection.connect(function (err) {
 	if (err) {
 		console.log("Error connecting");
-		console.log(err)
+		console.log(err);
 		return;
 	}
 	console.log("Connected!");
-	connection.query("select * from artist_table", function (err, result) {
+	connection.query("show databases", function (err, result) {
 		if (err) {
 			console.log("Table does not exist");
 		}
 		console.log(result);
 	});
 
+	connection.query("show tables", function (err, result) {
+		if (err) {
+			console.log("Table does not exist");
+		}
+		console.log(result);
+	});
+
+	connection.query("select * from user_login", function (err, result) {
+		if (err) {
+			console.log("Table does not exist");
+		}
+		console.log(result);
+	});
 	// connection.query("describe test", function (err, result) {
 	// 	if (err) {
 	// 		console.log("Table does not exist");
@@ -33,4 +46,3 @@ connection.connect(function (err) {
 	// });
 	connection.end();
 });
-
