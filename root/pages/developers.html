@@ -51,6 +51,23 @@
         .bg-pink-200 {
             background-color: rgba(251, 207, 232, 0.336);
         }
+
+        .developer-pic {
+            --m:
+                radial-gradient(circle farthest-side at right, #000 99%, #0000) 0 100%/46% 92% no-repeat,
+                radial-gradient(circle farthest-side at left, #000 99%, #0000) 100% 0/46% 92% no-repeat;
+            -webkit-mask: var(--m);
+            mask: var(--m);
+            filter: grayscale(.5);
+            transition: .3s linear;
+            cursor: pointer;
+        }
+
+        .developer-pic:hover {
+            -webkit-mask-position: 7.5% 50%, 92.5% 50%;
+            mask-position: 7.5% 50%, 92.5% 50%;
+            filter: grayscale(0);
+        }
     </style>
 </head>
 
@@ -188,7 +205,7 @@
         <div class="w-full max-w-xl rounded-3xl shadow dark:bg-slate-300">
             <br>
             <div class="flex flex-col items-center pb-10">
-                <img class="w-40 h-40 rounded-full shadow-lg bg-cover m-4"
+                <img class="w-40 h-40 rounded-full shadow-lg bg-cover m-4 "
                     src="https://source.unsplash.com/random/?city,night" alt="image" />
                 <h5 class="mb-1 text-2xl font-medium text-gray-900">Parth Zarekar</h5>
                 <span class="text-lg text-gray-800">Developer</span>

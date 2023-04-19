@@ -9,21 +9,27 @@
     <link rel="stylesheet" href="../src/css/style.css">
     <title>Poco Loco</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Rubik:wght@300&display=swap');
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Rubik', serif;
+        }
+
         body {
-            height: 100vh;
+            /* height: 100vh; */
             background-color: #4158d0;
-            /* background-image: linear-gradient(43deg,
+            background-image: linear-gradient(43deg,
                     #4158d0 0%,
                     #c850c0 46%,
-                    #70b7ff 100%); */
-            background-image: url('../resources/images/login_coco.jpg');
-            background-position-x: -10rem;
-            background-size: 110%;
+                    #70b7ff 100%);
+            /* background-image: url('../resources/images/login_coco.jpg'); */
+            /* background-position-x: -10rem; */
+            /* background-size: 110%; */
 
-            /* will-change: scroll-position; */
-            /* background-size: 500%; */
-            /* animation: gradient 10s ease-in-out 20 alternate-reverse; */
-            overflow: hidden;
+            will-change: scroll-position;
+            background-size: 500%;
+            animation: gradient 10s ease-in-out 20 alternate-reverse;
         }
 
         @keyframes gradient {
@@ -36,21 +42,182 @@
             }
         }
 
-        .logo {
-            background-image: url('../resources/images/logo.png');
-            background-size: 100%;
-            background-repeat: no-repeat;
-            width: 20rem;
-            height: 10rem;
+        .bg-white-trans {
+            background-color: rgba(226, 161, 228, 0.74);
+        }
+
+        .rounded-t-4xl {
+            border-top-left-radius: 3rem;
+            border-top-right-radius: 3rem;
+        }
+
+        .main-player-animate-up {
+            animation: slide-up 1.5s ease-out forwards;
+        }
+
+        .main-player-animate-down {
+            animation: slide-down 1.5s ease-out forwards;
+        }
+
+        @keyframes slide-up {
+            from {
+                bottom: -96rem;
+            }
+
+            to {
+                bottom: 0;
+            }
+        }
+
+        @keyframes slide-down {
+            from {
+                bottom: 0;
+            }
+
+            to {
+                bottom: -96;
+            }
+        }
+
+        .container {
+            position: relative;
+            width: 320px;
+            margin: 100px auto 0 auto;
+            perspective: 1000px;
+        }
+
+        .carousel {
+            will-change: auto;
             position: absolute;
-            top: 0;
-            left: 0;
-            margin: 2rem;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotate360 60s infinite forwards linear;
+        }
+
+        .carousel__face {
+            position: absolute;
+            width: 300px;
+            height: 187px;
+            top: 20px;
+            left: 10px;
+            right: 10px;
+            background-size: cover;
+            /* box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); */
+            display: flex;
+            border-radius: 1rem;
+        }
+
+        span {
+            margin: auto;
+            font-size: 2rem;
+        }
+
+
+        .carousel__face:nth-child(1) {
+            background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(0deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(2) {
+            background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(40deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(3) {
+            background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(80deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(4) {
+            background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(120deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(5) {
+            background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(160deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(6) {
+            background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(200deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(7) {
+            background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(240deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(8) {
+            background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(280deg) translateZ(430px);
+        }
+
+        .carousel__face:nth-child(9) {
+            background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            transform: rotateY(320deg) translateZ(430px);
+        }
+
+
+
+        @keyframes rotate360 {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(-360deg);
+            }
+        }
+
+        .bg-white-trans {
+            background-color: rgba(226, 161, 228, 0.74);
+        }
+
+        .bg-pink-200 {
+            background-color: rgba(251, 207, 232, 0.336);
+        }
+
+
+        .patterns {
+            height: 100vh;
+        }
+
+
+
+        svg text {
+            font-family: Lora;
+            letter-spacing: 10px;
+            stroke: #ffa5d8;
+            font-size: 150px;
+            font-weight: 700;
+            stroke-width: 3;
+
+            animation: textAnimate 5s infinite alternate;
+
+        }
+
+        @keyframes textAnimate {
+            0% {
+                stroke-dasharray: 0 50%;
+                stroke-dashoffset: 20%;
+                fill: hsl(189, 68%, 75%)
+            }
+
+            100% {
+                stroke-dasharray: 50% 0;
+                stroke-dashoffstet: -20%;
+                fill: hsla(189, 68%, 75%, 0%)
+            }
+
         }
     </style>
+
 </head>
 
 <body>
+
     <nav class="bg-white border-gray-200 dark:bg-purple-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="./home_page.html" class="flex items-center">
@@ -119,8 +286,80 @@
             </div>
         </div>
     </nav>
-    This page should contain the artist's name, some description, and a carousal of their images. The background can be
-    blur and same as usual.
+
+    <!-- This page should contain the artist's name, some description, and a carousal of their images. The background can be
+    blur and same as usual. -->
+
+    <div class="container">
+        <div class="carousel">
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+            <div class="carousel__face"><span></span></div>
+        </div>
+    </div>
+
+    <div class="text-2xl">
+
+    </div>
+    <div class="patterns">
+        <svg width="100%" height="100%">
+            <defs>
+                <pattern id="polka-dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle fill="#be9ddf" cx="25" cy="25" r="3"></circle>
+                </pattern>
+                <style>
+                    @import url("https://fonts.googleapis.com/css?  family=Lora:400,400i,700,700i");
+                </style>
+
+            </defs>
+
+            <rect x="0" y="0" width="100%" height="75%" fill="url(#polka-dots)"> </rect>
+            <text x="50%" y="60%" text-anchor="middle">
+                Taylor Swift
+            </text>
+        </svg>
+    </div>
+
+    <div class="flex justify-center relative -top-72">
+        <div class="text-4xl text-center p-4 m-10 bg-pink-200 rounded-3xl">
+            Consequat laboris velit consectetur culpa ea Lorem do eiusmod. Nulla duis non in culpa eu ea labore ex
+            do
+            situllamco. Enim sit et anim fugiat esse sit duis id ea magna culpa pariatur ullamco irure.
+            Reprehenderit magna
+            veniam tempor veniam incididunt eu consequat qui ipsum eiusmod.
+
+            <br>
+            <br>
+            Consequat pariatur deserunt ea commodo id et reprehenderit proident magna. Fugiat ad deserunt esse
+            eiusmod
+            ea
+            est. Dolor magna elit aliquip ad non culpa. Officia nostrud excepteur laboris occaecat ad nulla eiusmod.
+            Anim in
+            aute labore reprehenderit dolore nostrud ea ullamco irure exercitation quis. Exercitation aliqua
+            proident
+            est
+            amet ea. Proident velit commodo sit nostrud enim id magna.
+            <br>
+            <br>
+
+            Id est ut nisi et ea veniam ut sunt nostrud ullamco commodo voluptate aliquip. Do esse aliqua do irure
+            consectetur. Dolore laborum irure velit duis laboris eu aliqua sit laborum voluptate laboris veniam
+            officia.
+
+            Mollit dolor reprehenderit et et enim id aliquip proident mollit nisi. Nulla aliquip aliquip qui quis.
+            Sit
+            duis
+            nisi ut id consectetur mollit qui id in aliquip laborum amet exercitation.
+        </div>
+    </div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
 </body>
