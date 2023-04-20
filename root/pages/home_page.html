@@ -7,6 +7,9 @@
     <link rel='stylesheet' href='https://rsms.me/inter/inter.css'>
     <link rel="stylesheet" href="../src/css/player_style.css">
     <link rel="stylesheet" href="../src/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Rubik:wght@300&display=swap');
 
@@ -16,7 +19,7 @@
         }
 
         body {
-            height: 100vh;
+            /* height: 100vh; */
             background-color: #4158d0;
             background-image: linear-gradient(43deg,
                     #2a0341 0%,
@@ -47,6 +50,11 @@
             border-top-right-radius: 3rem;
         }
 
+        .rounded-4xl {
+            border-radius: 3rem;
+        }
+
+
         .main-player-animate-up {
             animation: slide-up 1.5s ease-out forwards;
         }
@@ -74,11 +82,149 @@
                 bottom: -96;
             }
         }
+
+        .glow {
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            border-radius: 100%;
+        }
+
+        .glow-1 {
+            animation: glow1 4s linear infinite;
+        }
+
+        .glow-2 {
+            animation: glow2 4s linear infinite;
+            animation-delay: 100ms;
+        }
+
+        .glow-3 {
+            animation: glow3 4s linear infinite;
+            animation-delay: 200ms;
+        }
+
+        .glow-4 {
+            animation: glow4 4s linear infinite;
+            animation-delay: 300ms;
+        }
+
+        @keyframes glow1 {
+            0% {
+                transform: translate(10%, 10%) scale(1);
+            }
+
+            25% {
+                transform: translate(-10%, 10%) scale(1);
+            }
+
+            50% {
+                transform: translate(-10%, -10%) scale(1);
+            }
+
+            75% {
+                transform: translate(10%, -10%) scale(1);
+            }
+
+            100% {
+                transform: translate(10%, 10%) scale(1);
+            }
+        }
+
+        @keyframes glow2 {
+            0% {
+                transform: translate(-10%, -10%) scale(1);
+            }
+
+            25% {
+                transform: translate(10%, -10%) scale(1);
+            }
+
+            50% {
+                transform: translate(10%, 10%) scale(1);
+            }
+
+            75% {
+                transform: translate(-10%, 10%) scale(1);
+            }
+
+            100% {
+                transform: translate(-10%, -10%) scale(1);
+            }
+        }
+
+        @keyframes glow3 {
+            0% {
+                transform: translate(-10%, 10%) scale(1);
+            }
+
+            25% {
+                transform: translate(-10%, -10%) scale(1);
+            }
+
+            50% {
+                transform: translate(10%, -10%) scale(1);
+            }
+
+            75% {
+                transform: translate(10%, 10%) scale(1);
+            }
+
+            100% {
+                transform: translate(-10%, 10%) scale(1);
+            }
+        }
+
+        @keyframes glow4 {
+            0% {
+                transform: translate(10%, -10%) scale(1);
+            }
+
+            25% {
+                transform: translate(10%, 10%) scale(1);
+            }
+
+            50% {
+                transform: translate(-10%, 10%) scale(1);
+            }
+
+            75% {
+                transform: translate(-10%, -10%) scale(1);
+            }
+
+            100% {
+                transform: translate(10%, -10%) scale(1);
+            }
+        }
+
+        .table {
+            border-spacing: 0 15px;
+        }
+
+        i {
+            font-size: 1rem !important;
+        }
+
+        .table tr {
+            border-radius: 20px;
+        }
+
+        tr td:nth-child(n+5),
+        tr th:nth-child(n+5) {
+            border-radius: 0 .625rem .625rem 0;
+        }
+
+        tr td:nth-child(1),
+        tr th:nth-child(1) {
+            border-radius: .625rem 0 0 .625rem;
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
 
+    <!-- Navigation -->
     <nav class="bg-white border-gray-200 dark:bg-purple-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="./home_page.html" class="flex items-center">
@@ -86,7 +232,7 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Poco Loco</span>
             </a>
             <button data-collapse-toggle="navbar-multi-level" type="button"
-                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                class="inline-flex items-center p-2 ml-3 text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-multi-level" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -129,7 +275,7 @@
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbar"
                         class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                        <ul class="py-2 text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
                                 <a href="./forgot-pass.html"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-xl">Change
@@ -138,7 +284,7 @@
                         </ul>
                         <div class="py-1">
                             <a href="./login.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white text-xl">Sign
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white text-xl">Sign
                                 out</a>
                         </div>
                     </div>
@@ -148,9 +294,294 @@
         </div>
     </nav>
 
+    <!-- Search Bar -->
+    <div class="flex flex-col justify-center">
+        <div class="relative p-12 w-full sm:max-w-6xl sm:mx-auto">
+            <div class="overflow-hidden z-0 rounded-full relative p-3">
+                <form role="form" class="relative flex z-50 bg-white rounded-full">
+                    <input type="text" placeholder="Search for any song"
+                        class="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none">
+                    <button
+                        class="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none">Search</button>
+                </form>
+                <div class="glow glow-1 z-10 bg-pink-400 absolute"></div>
+                <div class="glow glow-2 z-20 bg-purple-400 absolute"></div>
+                <div class="glow glow-3 z-30 bg-yellow-400 absolute"></div>
+                <div class="glow glow-4 z-40 bg-blue-400 absolute"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-container-container flex justify-center ">
+        <!-- <div class="search-something text-7xl text-slate-400 italic self-center text-center"> Search Some Song :)</div> -->
+        <div
+            class="results-container flex items-center align-middle justify-center flex-col w-10/12 bg-purple-100/10 m-10 p-8 px-20 rounded-4xl">
+            <div class="song-result bg-transparent text-white w-full flex justify-between m-2 p-8 rounded-2xl">
+                <div class="song-name text-2xl">Title</div>
+                <div class="song-artist text-2xl">Artist</div>
+                <div class="song-length text-2xl">Length</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+            <div
+                class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                <div class="flex align-items-center">
+                    <img class="rounded-lg h-12 w-12 object-cover"
+                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                        alt="unsplash image">
+                    <div class="ml-3 flex flex-col justify-center">
+                        <div class="hover:underline">The Nights</div>
+                        <div class="text-gray-500 hover:underline">Avicii</div>
+                    </div>
+                </div>
+                <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 
+    <div class="flex items-center justify-center">
+        <div class="col-span-12">
+            <div class="overflow-auto lg:overflow-visible ">
+                <table class="table text-gray-400 border-separate space-y-6 text-xl w-auto">
+                    <thead class="bg-purple-300/40 text-white">
+                        <tr>
+                            <th class="p-3">Title</th>
+                            <th class="p-3 text-left">Category</th>
+                            <th class="p-3 text-left">Artist</th>
+                            <th class="p-3 text-left">Length</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-purple-100/10 hover:bg-purple-100/20">
+                            <td class="p-3">
+                                <div class="flex align-items-center">
+                                    <img class="rounded-lg h-12 w-12 object-cover"
+                                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                        alt="unsplash image">
+                                    <div class="ml-3">
+                                        <div class="">Appple</div>
+                                        <div class="text-gray-500">mail@rgmail.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-3">
+                                Technology
+                            </td>
+                            <td class="p-3">
+                                Lucky Singh
+                            </td>
+                            <td class="p-3 ">
+                                <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
+                                    <i class="material-icons-outlined text-base">visibility</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
+                                    <i class="material-icons-outlined text-base">edit</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100  ml-2">
+                                    <i class="material-icons-round text-base">delete_outline</i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-800">
+                            <td class="p-3">
+                                <div class="flex align-items-center">
+                                    <img class="rounded-full h-12 w-12   object-cover"
+                                        src="https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                                        alt="unsplash image">
+                                    <div class="ml-3">
+                                        <div class="">Realme</div>
+                                        <div class="text-gray-500">mail@rgmail.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-3">
+                                Technology
+                            </td>
+                            <td class="p-3">
+                                <span class="bg-red-400 text-gray-50 rounded-md px-2">no stock</span>
+                            </td>
+                            <td class="p-3">
+                                <a href="#" class="text-gray-400 hover:text-gray-100  mr-2">
+                                    <i class="material-icons-outlined text-base">visibility</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">
+                                    <i class="material-icons-outlined text-base">edit</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100 ml-2">
+                                    <i class="material-icons-round text-base">delete_outline</i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-800">
+                            <td class="p-3">
+                                <div class="flex align-items-center">
+                                    <img class="rounded-full h-12 w-12   object-cover"
+                                        src="https://images.unsplash.com/photo-1600856209923-34372e319a5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2135&q=80"
+                                        alt="unsplash image">
+                                    <div class="ml-3">
+                                        <div class="">Samsung</div>
+                                        <div class="text-gray-500">mail@rgmail.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-3">
+                                Technology
+                            </td>
+                            <td class="p-3">
+                                <span class="bg-yellow-400 text-gray-50  rounded-md px-2">start sale</span>
+                            </td>
+                            <td class="p-3">
+                                <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
+                                    <i class="material-icons-outlined text-base">visibility</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">
+                                    <i class="material-icons-outlined text-base">edit</i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-gray-100 ml-2">
+                                    <i class="material-icons-round text-base">delete_outline</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
+
+
     <!-- player -->
     <div
-        class="bg-transparent w-screen flex flex-col items-center justify-center fixed -bottom-96 transform-gpu transition-up main-player-animate-up">
+        class="bg-transparent w-screen flex flex-col items-center justify-center fixed -bottom-96 transform-gpu transition-up">
         <div
             class="relative w-11/12 flex flex-col rounded-xl shadow-player-light bg-player-light-background border border-player-light-border dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border dark:backdrop-blur-xl">
             <div class="combine flex align-middle items-end justify-center">
