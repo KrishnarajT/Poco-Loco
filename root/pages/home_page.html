@@ -10,215 +10,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
+        <link rel="stylesheet" href="../src/css/home_page.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Rubik:wght@300&display=swap');
-
-        * {
-            box-sizing: border-box;
-            font-family: 'Rubik', serif;
-        }
-
-        body {
-            /* height: 100vh; */
-            background-color: #4158d0;
-            background-image: linear-gradient(43deg,
-                    #2a0341 0%,
-                    #110210 46%,
-                    #2d0938 100%);
-
-            will-change: scroll-position;
-            background-size: 500%;
-            animation: gradient 10s ease-in-out 20 alternate-reverse;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
-
-            100% {
-                background-position: 100%;
-            }
-        }
-
-        .bg-white-trans {
-            background-color: rgba(226, 161, 228, 0.74);
-        }
-
-        .rounded-t-4xl {
-            border-top-left-radius: 3rem;
-            border-top-right-radius: 3rem;
-        }
-
-        .rounded-4xl {
-            border-radius: 3rem;
-        }
-
-
-        .main-player-animate-up {
-            animation: slide-up 1.5s ease-out forwards;
-        }
-
-        .main-player-animate-down {
-            animation: slide-down 1.5s ease-out forwards;
-        }
-
-        @keyframes slide-up {
-            from {
-                bottom: -96rem;
-            }
-
-            to {
-                bottom: 0;
-            }
-        }
-
-        @keyframes slide-down {
-            from {
-                bottom: 0;
-            }
-
-            to {
-                bottom: -96;
-            }
-        }
-
-        .glow {
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            border-radius: 100%;
-        }
-
-        .glow-1 {
-            animation: glow1 4s linear infinite;
-        }
-
-        .glow-2 {
-            animation: glow2 4s linear infinite;
-            animation-delay: 100ms;
-        }
-
-        .glow-3 {
-            animation: glow3 4s linear infinite;
-            animation-delay: 200ms;
-        }
-
-        .glow-4 {
-            animation: glow4 4s linear infinite;
-            animation-delay: 300ms;
-        }
-
-        @keyframes glow1 {
-            0% {
-                transform: translate(10%, 10%) scale(1);
-            }
-
-            25% {
-                transform: translate(-10%, 10%) scale(1);
-            }
-
-            50% {
-                transform: translate(-10%, -10%) scale(1);
-            }
-
-            75% {
-                transform: translate(10%, -10%) scale(1);
-            }
-
-            100% {
-                transform: translate(10%, 10%) scale(1);
-            }
-        }
-
-        @keyframes glow2 {
-            0% {
-                transform: translate(-10%, -10%) scale(1);
-            }
-
-            25% {
-                transform: translate(10%, -10%) scale(1);
-            }
-
-            50% {
-                transform: translate(10%, 10%) scale(1);
-            }
-
-            75% {
-                transform: translate(-10%, 10%) scale(1);
-            }
-
-            100% {
-                transform: translate(-10%, -10%) scale(1);
-            }
-        }
-
-        @keyframes glow3 {
-            0% {
-                transform: translate(-10%, 10%) scale(1);
-            }
-
-            25% {
-                transform: translate(-10%, -10%) scale(1);
-            }
-
-            50% {
-                transform: translate(10%, -10%) scale(1);
-            }
-
-            75% {
-                transform: translate(10%, 10%) scale(1);
-            }
-
-            100% {
-                transform: translate(-10%, 10%) scale(1);
-            }
-        }
-
-        @keyframes glow4 {
-            0% {
-                transform: translate(10%, -10%) scale(1);
-            }
-
-            25% {
-                transform: translate(10%, 10%) scale(1);
-            }
-
-            50% {
-                transform: translate(-10%, 10%) scale(1);
-            }
-
-            75% {
-                transform: translate(-10%, -10%) scale(1);
-            }
-
-            100% {
-                transform: translate(10%, -10%) scale(1);
-            }
-        }
-
-        .table {
-            border-spacing: 0 15px;
-        }
-
-        i {
-            font-size: 1rem !important;
-        }
-
-        .table tr {
-            border-radius: 20px;
-        }
-
-        tr td:nth-child(n+5),
-        tr th:nth-child(n+5) {
-            border-radius: 0 .625rem .625rem 0;
-        }
-
-        tr td:nth-child(1),
-        tr th:nth-child(1) {
-            border-radius: .625rem 0 0 .625rem;
-        }
     </style>
 </head>
 
@@ -247,25 +40,24 @@
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-purple-900 dark:border-gray-700">
                     <li>
                         <a href="./home_page.html"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent text-xl"
-                            aria-current="page">Home</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Home</a>
                     </li>
                     <li>
 
                     <li>
                         <a href="./user_playlists.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Playlists</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Playlists</a>
                     </li>
                     <li>
                         <a href="./artist.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Artists</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Artists</a>
                     </li>
                     <li>
                         <a href="./developers.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Developers</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Developers</a>
                     </li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent text-xl">Account
+                        class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Account
                         <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -313,8 +105,8 @@
     </div>
 
     <!-- Results -->
-    <div class="results-container-container flex justify-center ">
-        <!-- <div class="search-something text-7xl text-slate-400 italic self-center text-center"> Search Some Song :)</div> -->
+    <div class="results-container-container flex flex-col justify-center items-center ">
+        <div class="search-something text-6xl text-slate-500 self-center text-center"> Here are your results...</div>
         <div
             class="results-container flex items-center align-middle justify-center flex-col w-10/12 bg-purple-100/10 m-10 p-8 px-20 rounded-4xl">
             <div class="song-result bg-transparent text-white w-full flex justify-between m-2 p-8 rounded-2xl">
@@ -467,117 +259,6 @@
         </div>
 
     </div>
-
-    <!-- 
-    <div class="flex items-center justify-center">
-        <div class="col-span-12">
-            <div class="overflow-auto lg:overflow-visible ">
-                <table class="table text-gray-400 border-separate space-y-6 text-xl w-auto">
-                    <thead class="bg-purple-300/40 text-white">
-                        <tr>
-                            <th class="p-3">Title</th>
-                            <th class="p-3 text-left">Category</th>
-                            <th class="p-3 text-left">Artist</th>
-                            <th class="p-3 text-left">Length</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-purple-100/10 hover:bg-purple-100/20">
-                            <td class="p-3">
-                                <div class="flex align-items-center">
-                                    <img class="rounded-lg h-12 w-12 object-cover"
-                                        src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
-                                        alt="unsplash image">
-                                    <div class="ml-3">
-                                        <div class="">Appple</div>
-                                        <div class="text-gray-500">mail@rgmail.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="p-3">
-                                Technology
-                            </td>
-                            <td class="p-3">
-                                Lucky Singh
-                            </td>
-                            <td class="p-3 ">
-                                <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
-                                    <i class="material-icons-outlined text-base">visibility</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
-                                    <i class="material-icons-outlined text-base">edit</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100  ml-2">
-                                    <i class="material-icons-round text-base">delete_outline</i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-800">
-                            <td class="p-3">
-                                <div class="flex align-items-center">
-                                    <img class="rounded-full h-12 w-12   object-cover"
-                                        src="https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                                        alt="unsplash image">
-                                    <div class="ml-3">
-                                        <div class="">Realme</div>
-                                        <div class="text-gray-500">mail@rgmail.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="p-3">
-                                Technology
-                            </td>
-                            <td class="p-3">
-                                <span class="bg-red-400 text-gray-50 rounded-md px-2">no stock</span>
-                            </td>
-                            <td class="p-3">
-                                <a href="#" class="text-gray-400 hover:text-gray-100  mr-2">
-                                    <i class="material-icons-outlined text-base">visibility</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">
-                                    <i class="material-icons-outlined text-base">edit</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100 ml-2">
-                                    <i class="material-icons-round text-base">delete_outline</i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-800">
-                            <td class="p-3">
-                                <div class="flex align-items-center">
-                                    <img class="rounded-full h-12 w-12   object-cover"
-                                        src="https://images.unsplash.com/photo-1600856209923-34372e319a5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2135&q=80"
-                                        alt="unsplash image">
-                                    <div class="ml-3">
-                                        <div class="">Samsung</div>
-                                        <div class="text-gray-500">mail@rgmail.com</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="p-3">
-                                Technology
-                            </td>
-                            <td class="p-3">
-                                <span class="bg-yellow-400 text-gray-50  rounded-md px-2">start sale</span>
-                            </td>
-                            <td class="p-3">
-                                <a href="#" class="text-gray-400 hover:text-gray-100 mr-2">
-                                    <i class="material-icons-outlined text-base">visibility</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100 mx-2">
-                                    <i class="material-icons-outlined text-base">edit</i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-gray-100 ml-2">
-                                    <i class="material-icons-round text-base">delete_outline</i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> -->
-
 
     <!-- player -->
     <div

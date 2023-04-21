@@ -1,5 +1,5 @@
-create DATABASE pocoloco;
-use pocoloco;
+create DATABASE pocoloco2;
+use pocoloco2;
 CREATE TABLE `user_login` (
 	`user_id` INT NOT NULL AUTO_INCREMENT,
 	`user_name` VARCHAR(255) NOT NULL,
@@ -14,7 +14,8 @@ CREATE TABLE `songs_table` (
 	`song_url` VARCHAR(500) NOT NULL UNIQUE,
 	`artist_id` VARCHAR(255) NOT NULL,
 	`image_id` VARCHAR(255) NOT NULL,
-	`genre` VARCHAR(255) NOT NULL,
+	`lyrics_id` VARCHAR(255) NOT NULL,
+	`description` VARCHAR(255) NOT NULL,
 	`length` INT NOT NULL DEFAULT '0',
 	PRIMARY KEY (`song_id`)
 );
@@ -28,19 +29,17 @@ CREATE TABLE `artist_table` (
 	`artist_id` VARCHAR(255) NOT NULL,
 	`artist_name` VARCHAR(255) NOT NULL DEFAULT 'null',
 	`artist_description` VARCHAR(2000) NOT NULL DEFAULT 'This is one of the artists featured on our website. ',
-	`birth_date` DATE NOT NULL,
 	PRIMARY KEY (`artist_id`)
 );
 CREATE TABLE `image_table` (
 	`image_id` VARCHAR(255) NOT NULL,
 	`image_url` VARCHAR(500) NOT NULL,
-	`song_id` VARCHAR(255) NOT NULL,
 	PRIMARY KEY (`image_id`, `image_url`)
 );
 CREATE TABLE `lyrics_table` (
-	`song_id` VARCHAR(255) NOT NULL,
+	`lyrics_id` VARCHAR(255) NOT NULL,
 	`lyrics` VARCHAR(500) NOT NULL,
-	PRIMARY KEY (`lyrics`)
+	PRIMARY KEY (`lyrics_id`)
 );
 ALTER TABLE `songs_table`
 ADD CONSTRAINT `songs_table_fk0` FOREIGN KEY (`artist_id`) REFERENCES `artist_table`(`artist_id`);
@@ -49,7 +48,3 @@ ADD CONSTRAINT `songs_table_fk1` FOREIGN KEY (`image_id`) REFERENCES `image_tabl
 ALTER TABLE `playlist_table`
 ADD CONSTRAINT `playlist_table_fk0` FOREIGN KEY (`user_id`) REFERENCES `user_login`(`user_id`);
 ALTER TABLE `playlist_table` ADD CONSTRAINT `playlist_table_fk1` FOREIGN KEY (`song_id`) REFERENCES `songs_table`(`song_id`);
-ALTER TABLE `image_table`
-ADD CONSTRAINT `image_table_fk0` FOREIGN KEY (`song_id`) REFERENCES `songs_table`(`song_id`);
-ALTER TABLE `lyrics_table`
-ADD CONSTRAINT `lyrics_table_fk0` FOREIGN KEY (`song_id`) REFERENCES `songs_table`(`song_id`);

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Rubik:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', serif;
+}
+
+body {
+    /* height: 100vh; */
+    background-color: #4158d0;
+    background-image: linear-gradient(43deg,
+            #4158d0 0%,
+            #c850c0 46%,
+            #70b7ff 100%);
+
+    will-change: scroll-position;
+    background-size: 500%;
+    animation: gradient 10s ease-in-out 20 alternate-reverse;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+.bg-white-trans {
+    background-color: rgba(226, 161, 228, 0.74);
+}
+
+.bg-pink-200 {
+    background-color: rgba(251, 207, 232, 0.336);
+}
+
+.developer-pic {
+    --m:
+        radial-gradient(circle farthest-side at right, #000 99%, #0000) 0 100%/46% 92% no-repeat,
+        radial-gradient(circle farthest-side at left, #000 99%, #0000) 100% 0/46% 92% no-repeat;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+    filter: grayscale(.5);
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+.developer-pic:hover {
+    -webkit-mask-position: 7.5% 50%, 92.5% 50%;
+    mask-position: 7.5% 50%, 92.5% 50%;
+    filter: grayscale(0);
+}
+
+.shadow-3xl {
+    /* huge shadow */
+    box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.2);
+}

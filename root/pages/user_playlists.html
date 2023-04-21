@@ -7,46 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png">
     <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/playlist_page.css">
     <title>Poco Loco</title>
     <style>
-        body {
-            height: 100vh;
-            background-color: #4158d0;
-            /* background-image: linear-gradient(43deg,
-                    #4158d0 0%,
-                    #c850c0 46%,
-                    #70b7ff 100%); */
-            background-image: url('../resources/images/login_coco.jpg');
-            background-position-x: -10rem;
-            background-size: 110%;
 
-            /* will-change: scroll-position; */
-            /* background-size: 500%; */
-            /* animation: gradient 10s ease-in-out 20 alternate-reverse; */
-            overflow: hidden;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
-
-            100% {
-                background-position: 100%;
-            }
-        }
-
-        .logo {
-            background-image: url('../resources/images/logo.png');
-            background-size: 100%;
-            background-repeat: no-repeat;
-            width: 20rem;
-            height: 10rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 2rem;
-        }
     </style>
 </head>
 
@@ -73,25 +37,24 @@
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-purple-900 dark:border-gray-700">
                     <li>
                         <a href="./home_page.html"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent text-xl"
-                            aria-current="page">Home</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Home</a>
                     </li>
                     <li>
 
                     <li>
                         <a href="./user_playlists.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Playlists</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Playlists</a>
                     </li>
                     <li>
                         <a href="./artist.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Artists</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Artists</a>
                     </li>
                     <li>
                         <a href="./developers.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Developers</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Developers</a>
                     </li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent text-xl">Account
+                        class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 dark:text-white md:dark:hover:hover:text-pink-300 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl hover:scale-105 transition-all duration-200">Account
                         <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -119,7 +82,213 @@
             </div>
         </div>
     </nav>
-    playlists
+
+    <div class="container-grid w-screen">
+
+        <!-- Pane -->
+        <div class="pane sticky top-0 p-10 rounded-3xl m-8 h-screen">
+            <div class="playlist-name text-slate-50 text-3xl font-light">Your Playlists</div>
+            <br>
+            <br>
+            <div class="playlist-container flex flex-col gap-4 h-4/6 justify-center">
+                <div
+                    class="playlist-name text-slate-100 text-xl font-light hover:scale-110 transition-all duration-200 hover:text-pink-300">
+                    Liked Songs</div>
+                <div
+                    class="playlist-name text-slate-100 text-xl font-light hover:scale-110 transition-all duration-200 hover:text-pink-300">
+                    Hindi Songs</div>
+                <div
+                    class="playlist-name text-slate-100 text-xl font-light hover:scale-110 transition-all duration-200 hover:text-pink-300">
+                    English Songs</div>
+                <div
+                    class="playlist-name text-slate-100 text-xl font-light hover:scale-110 transition-all duration-200 hover:text-pink-300">
+                    Spanish Songs</div>
+                <div
+                    class="playlist-name text-slate-100 text-xl font-light hover:scale-110 transition-all duration-200 hover:text-pink-300">
+                    Cheerful Music</div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content relative">
+            <svg width="100%" height="100%" class="p-4 absolute pointer-events-none">
+                <text x="45%" y="13%" text-anchor="middle">
+                    Liked Songs
+                </text>
+            </svg>
+            <div class="pane top-0 p-4 rounded-3xl m-8 h-72 flex items-center justify-end w-11/12">
+                <div class="playlist-title">
+                    <!-- button -->
+                    <div class="botón" onclick="this.classList.toggle('active')" class="">
+                        <div class="fondo" x="0" y="0" width="200" height="200"></div>
+                        <div class="icono" width="200" height="200">
+                            <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
+                            <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+                        </div>
+                        <div class="puntero"></div>
+                    </div>
+                </div>
+
+                <!-- Playlist songs -->
+            </div>
+
+            <div class="results-container-container flex flex-col justify-center items-center my-16">
+                <!-- <div class="search-something text-6xl text-slate-500 self-center text-center"> Here are your
+                                                    results...</div> -->
+                <div
+                    class="results-container flex items-center align-middle justify-center flex-col w-11/12 bg-purple-100/10 p-8 px-20 rounded-4xl">
+                    <div class="song-result bg-transparent text-white w-full flex justify-between m-2 p-8 rounded-3xl">
+                        <div class="song-name text-2xl">Title</div>
+                        <div class="song-artist text-2xl">Artist</div>
+                        <div class="song-length text-2xl">Length</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+                    <div
+                        class="song-result bg-transparent text-white w-full flex justify-between m-2 p-4 rounded-2xl hover:bg-slate-100/10 text-lg">
+                        <div class="flex align-items-center">
+                            <img class="rounded-lg h-12 w-12 object-cover"
+                                src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+                                alt="unsplash image">
+                            <div class="ml-3 flex flex-col justify-center">
+                                <div class="hover:underline">The Nights</div>
+                                <div class="text-gray-500 hover:underline">Avicii</div>
+                            </div>
+                        </div>
+                        <div class="song-artist text-2xl self-center hover:underline text-slate-200">Avicii</div>
+                        <div class="song-length text-2xl self-center text-slate-200">3:41</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 
