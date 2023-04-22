@@ -1,7 +1,6 @@
 // import { createHash } from "crypto";
 // check if the credentials are correct
 const comment = document.getElementById("comment");
-
 // checkbox
 const remember_text = document.getElementById("remember");
 const remember = document.getElementById("remember_checkbox");
@@ -9,7 +8,7 @@ const submit = document.getElementById("submit");
 submit.onclick = check_user;
 
 function hash(string) {
-	return crypto.createHash("sha256").update(string).digest("hex");
+	return CryptoJS.createHash("sha256").update(string).digest("hex");
 }
 
 const base_url = "http://localhost:3000";
@@ -102,18 +101,20 @@ async function check_user() {
 			console.error(error);
 			return error;
 		});
-	
+
 	console.log(response.data);
 
 	// check if the user exists in the database
 	if (response.data.message == "user found") {
+		console.log("user found");
+		const pass_hash = new Hashes.SHA1().b64(
+			password + response.data.user_data.salt
+		);
+		console.log(pass_hash);
+
 		// check if the password is correct
-		if (
-			hash(password + response.data.user_data.salt) ==
-			response.data.user_data.password
-		) {
-			// redirect to the home page
-			window.location = "./home_page.html"; // Redirecting to other page.
+		if (pass_hash == response.data.user_data.password) {
+			window.location = "./home_page.html";
 		} else {
 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
 			alert("Invalid credentials");

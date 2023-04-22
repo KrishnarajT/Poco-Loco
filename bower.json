@@ -1,0 +1,18 @@
+{
+  "name": "poco-loco",
+  "description": "A Music Playing Website",
+  "main": "index.js",
+  "authors": [
+    "KrishnarajT",
+    "ParthZ"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/KrishnarajT/Poco-Loco",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
