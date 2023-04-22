@@ -2,142 +2,145 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png">
-    <link rel="stylesheet" href="../src/css/style.css">
-    <title>Poco Loco</title>
-    <style>
-        body {
-            height: 100vh;
-            background-color: #4158d0;
-            background-image: url('../resources/images/2707913.jpg');
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png" />
+	<link rel="stylesheet" href="../src/css/style.css" />
+	<title>Poco Loco</title>
+	<style>
+		body {
+			height: 100vh;
+			background-color: #4158d0;
+			background-image: url("../resources/images/2707913.jpg");
 
-            /* will-change: scroll-position; */
-            /* background-size: 500%; */
-            /* animation: gradient 10s ease-in-out 20 alternate-reverse; */
-            overflow: hidden;
-        }
+			/* will-change: scroll-position; */
+			/* background-size: 500%; */
+			/* animation: gradient 10s ease-in-out 20 alternate-reverse; */
+			overflow: hidden;
+		}
 
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
+		@keyframes gradient {
+			0% {
+				background-position: 0%;
+			}
 
-            100% {
-                background-position: 100%;
-            }
-        }
+			100% {
+				background-position: 100%;
+			}
+		}
 
-        .logo {
-            background-image: url('../resources/images/logo_dark.png');
-            background-size: 100%;
-            background-repeat: no-repeat;
-            width: 40rem;
-            height: 10rem;
-            /* margin: 2rem; */
-        }
-        .bg-blue-100{
-            background-color: hsla(216, 73%, 75%, 0.719);
-        }
-        .bg-white{
-            background-color: hsla(213, 32%, 89%, 0.884);
-        }
-    </style>
+		.logo {
+			background-image: url("../resources/images/logo_dark.png");
+			background-size: 100%;
+			background-repeat: no-repeat;
+			width: 40rem;
+			height: 10rem;
+			/* margin: 2rem; */
+		}
+
+		.bg-blue-100 {
+			background-color: hsla(216, 73%, 75%, 0.719);
+		}
+
+		.bg-white {
+			background-color: hsla(213, 32%, 89%, 0.884);
+		}
+	</style>
 </head>
 
 <body>
-    <!-- div for the logo on top left corner containing an svg -->
-    <div class="flex justify-center bg-blue-100">
-        <div class="logo self-center">
-        </div>
-    </div>
-    <!-- Container -->
-    <!-- center vertically -->
-    <div class="flex align-middle items-center">
-        <!-- Container -->
-        <div class="container mx-auto">
-            <div class="flex justify-center px-6 my-12">
-                <!-- Row -->
-                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-                    <!-- Col -->
-                    <!-- Col -->
-                    <div class="w-full lg:w-7/12 bg-white p-6 rounded-2xl lg:rounded-l-none ">
-                        <h3 class="pt-4 text-3xl text-center">Create an Account!</h3>
-                        <br>
-                        <form class="px-8 pt-6 pb-8 mb-4 bg-transparent rounded-2xl">
-                            <div class="mb-4 md:flex md:justify-between">
-                                <div class="mb-4 md:mr-2 md:mb-0">
-                                    <label class="block mb-2 text-xl font-bold text-gray-700" for="firstName">
-                                        First Name
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="firstName" type="text" placeholder="First Name" />
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="block mb-2 text-xl font-bold text-gray-700" for="lastName">
-                                        Last Name
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="lastName" type="text" placeholder="Last Name" />
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <label class="block mb-2 text-xl font-bold text-gray-700" for="email">
-                                    Email
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 mb-3 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="email" type="email" placeholder="Email" />
-                            </div>
-                            <div class="mb-4 md:flex md:justify-between">
-                                <div class="mb-4 md:mr-2 md:mb-0">
-                                    <label class="block mb-2 text-xl font-bold text-gray-700" for="password">
-                                        Password
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 mb-3 text-xl leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="password" type="password" placeholder="******************" />
-                                    <p class="text-xs italic text-red-500">Please choose a password.</p>
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="block mb-2 text-xl font-bold text-gray-700" for="c_password">
-                                        Confirm Password
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 mb-3 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="c_password" type="password" placeholder="******************" />
-                                </div>
-                            </div>
-                            <div class="mb-6 text-center">
-                                <button
-                                    class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                                    type="button">
-                                    Register Account
-                                </button>
-                            </div>
-                            <hr class="mb-6 border-t" />
-                            <div class="text-center">
-                                <a class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
-                                    href="forgot-pass.html">
-                                    Forgot Password?
-                                </a>
-                            </div>
-                            <div class="text-center">
-                                <a class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
-                                    href="login.html">
-                                    Already have an account? Login!
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- div for the logo on top left corner containing an svg -->
+	<div class="flex justify-center bg-blue-100">
+		<div class="logo self-center"></div>
+	</div>
+	<!-- Container -->
+	<!-- center vertically -->
+	<div class="flex items-center align-middle">
+		<!-- Container -->
+		<div class="container mx-auto">
+			<div class="my-12 flex justify-center px-6">
+				<!-- Row -->
+				<div class="flex w-full lg:w-11/12 xl:w-3/4">
+					<!-- Col -->
+					<!-- Col -->
+					<div class="w-full rounded-2xl bg-white p-6 lg:w-7/12 lg:rounded-l-none">
+						<h3 class="pt-4 text-center text-3xl">Create an Account!</h3>
+						<br />
+						<form class="mb-4 rounded-2xl bg-transparent px-8 pb-8 pt-6">
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mb-0 md:mr-2">
+									<label class="mb-2 block text-xl font-bold text-gray-700" for="firstName">
+										First Name
+									</label>
+									<input
+										class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+										id="firstName" type="text" placeholder="First Name" />
+								</div>
+								<div class="md:ml-2">
+									<label class="mb-2 block text-xl font-bold text-gray-700" for="lastName">
+										Last Name
+									</label>
+									<input
+										class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+										id="lastName" type="text" placeholder="Last Name" />
+								</div>
+							</div>
+							<div class="mb-4">
+								<label class="mb-2 block text-xl font-bold text-gray-700" for="email">
+									Email
+								</label>
+								<input
+									class="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+									id="email" type="email" placeholder="Email" />
+							</div>
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mb-0 md:mr-2">
+									<label class="mb-2 block text-xl font-bold text-gray-700" for="password">
+										Password
+									</label>
+									<input
+										class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+										id="password" type="password" placeholder="******************" />
+									<p class="text-xs italic text-red-500">
+										Please choose a password.
+									</p>
+								</div>
+								<div class="md:ml-2">
+									<label class="mb-2 block text-xl font-bold text-gray-700" for="c_password">
+										Confirm Password
+									</label>
+									<input
+										class="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+										id="c_password" type="password" placeholder="******************" />
+								</div>
+							</div>
+							<div class="mb-6 text-center">
+								<button
+									class="focus:shadow-outline w-full rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+									type="button">
+									Register Account
+								</button>
+							</div>
+							<hr class="mb-6 border-t" />
+							<div class="text-center">
+								<a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
+									href="forgot-pass.html">
+									Forgot Password?
+								</a>
+							</div>
+							<div class="text-center">
+								<a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
+									href="login.html">
+									Already have an account? Login!
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

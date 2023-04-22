@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/load-animation.css">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/load-animation.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/root/resources/images/favicon.png"
+    />
     <title>Poco Loco</title>
-</head>
+  </head>
 
-<body class="">
+  <body class="">
     <div class="poco">
-        <h2>Poco</h2>
-        <h2>Poco</h2>
+      <h2>Poco</h2>
+      <h2>Poco</h2>
     </div>
     <div class="guitar-container">
-        <div class="guitar"></div>
+      <div class="guitar"></div>
     </div>
     <div class="loco">
-        <h2>Loco</h2>
-        <h2>Loco</h2>
+      <h2>Loco</h2>
+      <h2>Loco</h2>
     </div>
     <div class="welcome-container">
-        <div id="welcome" class="hidden z-10">Welcome</div>
+      <div id="welcome" class="z-10 hidden">Welcome</div>
     </div>
     <script>
-        body = document.getElementsByTagName('body')[0];
-        guitar = document.getElementsByClassName('guitar')[0];
-        poco = document.getElementsByClassName('poco')[0];
-        loco = document.getElementsByClassName('loco')[0];
-        welcome = document.getElementById('welcome');
+      body = document.getElementsByTagName("body")[0];
+      guitar = document.getElementsByClassName("guitar")[0];
+      poco = document.getElementsByClassName("poco")[0];
+      loco = document.getElementsByClassName("loco")[0];
+      welcome = document.getElementById("welcome");
 
-        setTimeout(() => {
-            // body.style.background = "#b4adfaff";
-            // body.style.animationPlayState = "paused";
-            guitar.style.animationPlayState = "paused";
-            guitar.style.display = "none";
-            poco.style.animationPlayState = "paused";
-            loco.style.animationPlayState = "paused";
-            poco.style.display = "none";
-            loco.style.display = "none";
-            console.log("done");
-            console.log(window.location)
-            console.log(welcome)
-            welcome.classList.remove('hidden');
-            welcome.classList.add('welcome');
-            // window.location.replace("pages/login.html");
-        }, 5500);
+      setTimeout(() => {
+        // body.style.background = "#b4adfaff";
+        // body.style.animationPlayState = "paused";
+        guitar.style.animationPlayState = "paused";
+        guitar.style.display = "none";
+        poco.style.animationPlayState = "paused";
+        loco.style.animationPlayState = "paused";
+        poco.style.display = "none";
+        loco.style.display = "none";
+        console.log("done");
+        console.log(window.location);
+        console.log(welcome);
+        welcome.classList.remove("hidden");
+        welcome.classList.add("welcome");
+        // window.location.replace("pages/login.html");
+      }, 5500);
 
-        setTimeout(() => {
-            welcome.classList.add('hidden');
-            window.location.replace("pages/login.html");
-        }, 10000);
-
+      setTimeout(() => {
+        welcome.classList.add("hidden");
+        window.location.replace("pages/login.html");
+      }, 10000);
     </script>
 
     <!-- <script src="./src/js/app.js"></script> -->
-</body>
-
+  </body>
 </html>

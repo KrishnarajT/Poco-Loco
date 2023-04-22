@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png">
-    <link rel="stylesheet" href="../src/css/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png" />
+    <link rel="stylesheet" href="../src/css/style.css" />
     <title>Poco Loco</title>
     <style>
         body {
@@ -34,7 +34,7 @@
         }
 
         .logo {
-            background-image: url('../resources/images/logo_dark.png');
+            background-image: url("../resources/images/logo_dark.png");
             background-size: 100%;
             background-repeat: no-repeat;
             width: 40rem;
@@ -45,17 +45,17 @@
 </head>
 
 <body>
-    <nav class="bg-white border-gray-200 dark:bg-purple-900 dark:border-gray-700">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav class="border-gray-200 bg-white dark:border-gray-700 dark:bg-purple-900">
+        <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
             <a href="./home_page.html" class="flex items-center">
-                <img src="../resources/images/SvgjsG1009.svg" class="h-8 mr-3" alt="Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Poco Loco</span>
+                <img src="../resources/images/SvgjsG1009.svg" class="mr-3 h-8" alt="Logo" />
+                <span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">Poco Loco</span>
             </a>
             <button data-collapse-toggle="navbar-multi-level" type="button"
-                class="inline-flex items-center p-2 ml-3 text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                class="ml-3 inline-flex items-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
                 aria-controls="navbar-multi-level" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -64,51 +64,52 @@
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
                 <ul
-                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-purple-900 dark:border-gray-700">
+                    class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-purple-900">
                     <li>
                         <a href="./home_page.html"
-                            class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent text-xl"
+                            class="block rounded bg-blue-700 py-2 pl-3 pr-4 text-xl text-white dark:bg-blue-600 md:bg-transparent md:p-0 md:text-blue-700 md:dark:bg-transparent md:dark:text-blue-500"
                             aria-current="page">Home</a>
                     </li>
-                    <li>
+                    <li></li>
 
                     <li>
                         <a href="./user_playlists.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Playlists</a>
+                            class="block rounded py-2 pl-3 pr-4 text-xl text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">Playlists</a>
                     </li>
                     <li>
                         <a href="./artist.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Artists</a>
+                            class="block rounded py-2 pl-3 pr-4 text-xl text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">Artists</a>
                     </li>
                     <li>
                         <a href="./developers.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl">Developers</a>
+                            class="block rounded py-2 pl-3 pr-4 text-xl text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">Developers</a>
                     </li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent text-xl">Account
-                        <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        class="flex w-full items-center justify-between border-b border-gray-100 py-2 pl-3 pr-4 text-xl text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+                        Account
+                        <svg class="ml-1 h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
-                        </svg></button>
+                        </svg>
+                    </button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbar"
-                        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white font-normal shadow dark:divide-gray-600 dark:bg-gray-700">
                         <ul class="py-2 text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
                                 <a href="./forgot-pass.html"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-xl">Change
+                                    class="block px-4 py-2 text-xl hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Change
                                     Password</a>
                             </li>
                         </ul>
                         <div class="py-1">
                             <a href="./login.html"
-                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white text-xl">Sign
+                                class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white">Sign
                                 out</a>
                         </div>
                     </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -116,53 +117,52 @@
     <!-- gotta put the password changing functionality here.  -->
     <!-- div for the logo on top left corner containing an svg -->
     <div class="flex justify-center">
-        <div class="logo self-center">
-        </div>
+        <div class="logo self-center"></div>
     </div>
     <!-- Container -->
     <!-- center vertically -->
-    <div class="flex align-middle items-center">
+    <div class="flex items-center align-middle">
         <div class="container mx-auto">
-            <div class="flex justify-center px-6 my-12">
+            <div class="my-12 flex justify-center px-6">
                 <!-- Row -->
-                <div class="w-full lg:w-11/12 flex">
+                <div class="flex w-full lg:w-11/12">
                     <!-- Col -->
-                    <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 rounded-l-lg bg-cover"
+                    <div class="hidden h-auto w-full rounded-l-lg bg-gray-400 bg-cover lg:block lg:w-1/2"
                         style="background-image: url('../resources/images/fpass_bg.png')"></div>
                     <!-- Col -->
-                    <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-                        <div class="px-8 mb-4 text-center">
-                            <h3 class="pt-4 mb-2 text-3xl">Forgot Your Password?</h3>
+                    <div class="w-full rounded-lg bg-white p-5 lg:w-1/2 lg:rounded-l-none">
+                        <div class="mb-4 px-8 text-center">
+                            <h3 class="mb-2 pt-4 text-3xl">Forgot Your Password?</h3>
                             <p class="mb-4 text-xl text-gray-700">
-                                We get it, stuff happens. Just enter your email address below and we'll send you a
-                                link to reset your password!
+                                We get it, stuff happens. Just enter your email address below
+                                and we'll send you a link to reset your password!
                             </p>
                         </div>
-                        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <form class="mb-4 rounded bg-white px-8 pb-8 pt-6">
                             <div class="mb-4">
-                                <label class="block mb-2 text-xl font-bold text-gray-700" for="email">
+                                <label class="mb-2 block text-xl font-bold text-gray-700" for="email">
                                     Email
                                 </label>
                                 <input
-                                    class="w-full px-3 py-2 text-xl leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
                                     id="email" type="email" placeholder="Enter Email Address..." />
                             </div>
                             <div class="mb-6 text-center">
                                 <button
-                                    class="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
+                                    class="focus:shadow-outline w-full rounded-full bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 focus:outline-none"
                                     type="button">
                                     Reset Password
                                 </button>
                             </div>
                             <hr class="mb-6 border-t" />
                             <div class="text-center">
-                                <a class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
+                                <a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
                                     href="signup.html">
                                     Create an Account!
                                 </a>
                             </div>
                             <div class="text-center">
-                                <a class="inline-block text-xl text-blue-500 align-baseline hover:text-blue-800"
+                                <a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
                                     href="login.html">
                                     Already have an account? Login!
                                 </a>
