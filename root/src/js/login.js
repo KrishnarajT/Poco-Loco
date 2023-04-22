@@ -1,4 +1,4 @@
-// import dbobj from "../../../server/database_manager.js";
+// import axios from "axios";
 
 // check if the credentials are correct
 const comment = document.getElementById("comment");
@@ -64,35 +64,59 @@ setInterval(() => {
 	if (i == remember_me_lyrics.length) i = 0;
 }, 3000);
 
-function check() {
-	console.log("checking credentials");
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
+// axios get request
+// axios.get("http://localhost:3000/test").then((response) => {
+// 	console.log(response.data);
+// });
 
-	// log everything
-	console.log("email: " + email);
-	console.log("password: " + password);
-
-	// check if the user exists in the database
-	if (dbobj.checkUser(username) == true) {
-		// check if the password is correct
-		if (dbobj.checkPassword(username, password) == true) {
-			// redirect to the home page
-			window.location = "./home_page.html"; // Redirecting to other page.
-		} else {
-			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-			alert("Invalid credentials");
+axios
+	.post(
+		"http://localhost:3000/auth",
+		{},
+		{
+			params: {
+				username: "admin",
+				password: "admin",
+			},
 		}
-	} else {
-		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";
-	}
+	)
+	.then((response) => {
+		console.log(response.data);
+	})
+	.catch(function (error) {
+		console.error(error);
+	});
 
-	// if (email == "admin" && password == "admin") {
-	// 	window.location = "./home_page.html"; // Redirecting to other page.
+// // check if the user exists in the database
+// function check() {
+// 	console.log("checking credentials");
+// 	var username = document.getElementById("username").value;
+// 	var password = document.getElementById("password").value;
 
-	// 	return false;
-	// } else {
-	// 	comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-	// 	alert("Invalid credentials");
-	// }
-}
+// 	// log everything
+// 	console.log("username: " + username);
+// 	console.log("password: " + password);
+
+// 	// check if the user exists in the database
+// 	if (dbobj.checkUser(username) == true) {
+// 		// check if the password is correct
+// 		if (dbobj.checkPassword(username, password) == true) {
+// 			// redirect to the home page
+// 			window.location = "./home_page.html"; // Redirecting to other page.
+// 		} else {
+// 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
+// 			alert("Invalid credentials");
+// 		}
+// 	} else {
+// 		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";
+// 	}
+
+// 	// if (email == "admin" && password == "admin") {
+// 	// 	window.location = "./home_page.html"; // Redirecting to other page.
+
+// 	// 	return false;
+// 	// } else {
+// 	// 	comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
+// 	// 	alert("Invalid credentials");
+// 	// }
+// }

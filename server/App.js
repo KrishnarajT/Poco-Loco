@@ -3,8 +3,20 @@
 
 const express = require("express");
 const dbobj = require("./database_manager");
+const cors = require("cors");
 
 const app = express();
+
+// // Using express.urlencoded middleware
+// app.use(express.urlencoded({
+//     extended: true
+// }))
+  
+// // Using express.json middleware
+// app.use(express.json())
+
+// 👇️ configure CORS
+app.use(cors());
 
 app.get("/", (req, res) => {
 	res.send("Hello World!");
@@ -20,6 +32,12 @@ app.get("/test", async (request, response) => {
 	console.log(result);
 	response.send(result);
 });
+
+app.post("/auth", async (request, response) => {
+	console.log(request.query);
+	response.send("Hello World!");
+});
+
 
 // app.use((req, res) => {
 // 	res.json({ message: "Hey! This is your server response!" });
