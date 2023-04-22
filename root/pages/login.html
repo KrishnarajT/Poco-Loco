@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png">
     <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Poco Loco</title>
     <style>
         body {
@@ -47,6 +48,123 @@
             left: 0;
             margin: 2rem;
         }
+
+        .label {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .label__checkbox {
+            display: none;
+        }
+
+        .label__check {
+            display: inline-block;
+            border-radius: 50%;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            background: white;
+            vertical-align: middle;
+            margin-right: 20px;
+            width: 2em;
+            height: 2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border 0.3s ease;
+        }
+
+        .label__check i.icon {
+            opacity: 0;
+            font-size: calc(1rem + 1vw);
+            color: transparent;
+            transition: opacity 0.3s 0.1s ease;
+            -webkit-text-stroke: 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .label__check:hover {
+            border: 5px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .label__checkbox:checked+.label__text .label__check {
+            animation: check 0.5s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards;
+        }
+
+        .label__checkbox:checked+.label__text .label__check .icon {
+            opacity: 1;
+            transform: scale(0);
+            color: white;
+            -webkit-text-stroke: 0;
+            animation: icon 0.3s cubic-bezier(1, 0.008, 0.565, 1.65) 0.1s 1 forwards;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes icon {
+            from {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(0.7);
+            }
+        }
+
+        @keyframes check {
+            0% {
+                width: 1.5em;
+                height: 1.5em;
+                border-width: 5px;
+            }
+
+            10% {
+                width: 1.5em;
+                height: 1.5em;
+                opacity: 0.1;
+                background: rgba(0, 0, 0, 0.2);
+                border-width: 15px;
+            }
+
+            12% {
+                width: 1.5em;
+                height: 1.5em;
+                opacity: 0.4;
+                background: rgba(0, 0, 0, 0.1);
+                border-width: 0;
+            }
+
+            50% {
+                width: 2em;
+                height: 2em;
+                background: #00d478;
+                border: 0;
+                opacity: 0.6;
+            }
+
+            100% {
+                width: 2em;
+                height: 2em;
+                background: #00d478;
+                border: 0;
+                opacity: 1;
+            }
+        }
+
+        .login {
+            width: 34vw;
+            left: 63%;
+        }
+
+        #remember {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
     </style>
 </head>
 
@@ -55,13 +173,13 @@
     <div class="logo">
     </div>
 
-    <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 left-2/3 absolute">
-        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 absolute login">
+        <div class="relative py-3">
             <div
                 class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
             </div>
             <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-                <div class="max-w-md mx-auto">
+                <div class="mx-auto">
                     <div>
                         <h1 class="text-4xl font-semibold">Login!</h1>
                     </div>
@@ -88,11 +206,18 @@
                                 <a href="forgot-pass.html" class="text-xl text-blue-500 hover:underline">Forgot your
                                     password?</a>
                             </div>
-
-                            <div class="relative">
-                                <input type="checkbox" id="remember" name="remember"
-                                    class="peer h-4 w-4 rounded-sm border-gray-300 text-blue-600 focus:outline-none focus:border-blue-600" />
-                                <label for="remember" class="ml-2 text-gray-600 text-xl">Remember me</label>
+                            <div class="checkbox-flex flex justify-start gap-6 items-center align-middle">
+                                <span class="relative h-8 w-6">
+                                    <label class="label">
+                                        <input class="label__checkbox" type="checkbox" id="remember_checkbox" />
+                                        <span class="label__text">
+                                            <span class="label__check">
+                                                <i class="fa fa-check icon"></i>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </span>
+                                <span class="italic self-center text-left align-middle fade-in-out" id="remember"></span>
                             </div>
                             <div>
                                 Dont have an Account? <a href="signup.html" class="hover:underline text-blue-500">Sign
@@ -113,23 +238,8 @@
         </div>
     </div>
 
+    <script src="../src/js/login.js" type="module"></script>
     <script>
-        // check if the credentials are correct
-        const comment = document.getElementById("comment");
-
-        function check() {
-            console.log("check")
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-
-            if (email == "admin" && password == "admin") {
-                window.location = "./home_page.html"; // Redirecting to other page.
-                return false;
-            } else {
-                comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-                alert("Invalid credentials");
-            }
-        }
     </script>
 </body>
 
