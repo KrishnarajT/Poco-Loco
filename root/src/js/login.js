@@ -1,12 +1,18 @@
-// import axios from "axios";
-
+// import { createHash } from "crypto";
 // check if the credentials are correct
 const comment = document.getElementById("comment");
 
 // checkbox
 const remember_text = document.getElementById("remember");
 const remember = document.getElementById("remember_checkbox");
+const submit = document.getElementById("submit");
+submit.onclick = check_user;
 
+function hash(string) {
+	return crypto.createHash("sha256").update(string).digest("hex");
+}
+
+const base_url = "http://localhost:3000";
 // check the checkbox
 remember.checked = true;
 setInterval(() => {
@@ -69,54 +75,53 @@ setInterval(() => {
 // 	console.log(response.data);
 // });
 
-axios
-	.post(
-		"http://localhost:3000/auth",
-		{},
-		{
-			params: {
-				username: "admin",
-				password: "admin",
-			},
+// check if the user exists in the database
+async function check_user() {
+	console.log("checking credentials");
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+
+	// log everything
+	console.log("username: " + username);
+	console.log("password: " + password);
+
+	const response = await axios
+		.post(
+			`${base_url}/auth`,
+			{},
+			{
+				params: {
+					username: username,
+				},
+			}
+		)
+		.then((response) => {
+			return response;
+		})
+		.catch(function (error) {
+			console.error(error);
+			return error;
+		});
+	
+	console.log(response.data);
+
+	// check if the user exists in the database
+	if (response.data.message == "user found") {
+		// check if the password is correct
+		if (
+			hash(password + response.data.user_data.salt) ==
+			response.data.user_data.password
+		) {
+			// redirect to the home page
+			window.location = "./home_page.html"; // Redirecting to other page.
+		} else {
+			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
+			alert("Invalid credentials");
 		}
-	)
-	.then((response) => {
-		console.log(response.data);
-	})
-	.catch(function (error) {
-		console.error(error);
-	});
-
-// // check if the user exists in the database
-// function check() {
-// 	console.log("checking credentials");
-// 	var username = document.getElementById("username").value;
-// 	var password = document.getElementById("password").value;
-
-// 	// log everything
-// 	console.log("username: " + username);
-// 	console.log("password: " + password);
-
-// 	// check if the user exists in the database
-// 	if (dbobj.checkUser(username) == true) {
-// 		// check if the password is correct
-// 		if (dbobj.checkPassword(username, password) == true) {
-// 			// redirect to the home page
-// 			window.location = "./home_page.html"; // Redirecting to other page.
-// 		} else {
-// 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-// 			alert("Invalid credentials");
-// 		}
-// 	} else {
-// 		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";
-// 	}
-
-// 	// if (email == "admin" && password == "admin") {
-// 	// 	window.location = "./home_page.html"; // Redirecting to other page.
-
-// 	// 	return false;
-// 	// } else {
-// 	// 	comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-// 	// 	alert("Invalid credentials");
-// 	// }
-// }
+	} else if (response.data.message == "user not found") {
+		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";
+	} else {
+		comment.innerHTML = "Something went wrong! Call the Devs!";
+		alert("Something went wrong! Call the Devs!");
+	}
+}

@@ -1,11 +1,6 @@
 // file for managing all transactions with the database.
 const mysql = require("mysql");
 
-const { createHash } = require("crypto");
-
-function hash(string) {
-	return createHash("sha256").update(string).digest("hex");
-}
 
 class DatabaseManager {
 	constructor() {
@@ -32,9 +27,7 @@ class DatabaseManager {
 	test() {
 		console.log("Testing");
 
-		const query_result = this.executeQuery(
-			"select * from lyrics_table"
-		).then(
+		const query_result = this.executeQuery("select * from user_login").then(
 			(result) => {
 				// console.log(result);
 				return result;
@@ -62,42 +55,26 @@ class DatabaseManager {
 	}
 
 	checkUser(username) {
+		console.log("Checking user");
 		const query = `SELECT * FROM user_login WHERE user_name = '${username}'`;
 		const query_result = this.executeQuery(query).then(
 			(result) => {
-				// console.log(result);
+				if (result.length == 0) {
+					result["message"] = "user not found";
+				} else {
+					result["message"] = "user found";
+				}
 				return result;
 			},
 			(err) => {
+				// say user not found
 				console.log(err);
 				return err;
 			}
 		);
-		console.log("Checking if the user exists. ");
-		console.log(result);
-		if (query_result.length == 0) {
-			return false;
-		}
-		return true;
+		return query_result;
 	}
 
-	checkPassword(username, password) {
-		// get the salt and hash from the database
-		const query = `SELECT user_salt, user_pass_hash FROM user_login WHERE user_name = '${username}'`;
-		const result = this.executeQuery(query);
-		console.log("Checking if the password is correct. ");
-		console.log(result);
-		if (result.length == 0) {
-			return false;
-		}
-		const salt = result[0].user_salt;
-		const db_hash = result[0].user_pass_hash;
-		const user_hash = hash(password + salt);
-		if (user_hash == db_hash) {
-			return true;
-		}
-		return false;
-	}
 	destructor() {
 		this.connection.end();
 	}
