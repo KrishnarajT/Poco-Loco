@@ -7,10 +7,6 @@ const remember = document.getElementById("remember_checkbox");
 const submit = document.getElementById("submit");
 submit.onclick = check_user;
 
-function hash(string) {
-	return CryptoJS.createHash("sha256").update(string).digest("hex");
-}
-
 const base_url = "http://localhost:3000";
 // check the checkbox
 remember.checked = true;
@@ -108,16 +104,18 @@ async function check_user() {
 	if (response.data.message == "user found") {
 		console.log("user found");
 		const pass_hash = new Hashes.SHA1().b64(
-			password + response.data.user_data.salt
+			password + response.data.user_data.user_salt
 		);
+		console.log(password);
+		console.log(response.data.user_data)
 		console.log(pass_hash);
 
 		// check if the password is correct
-		if (pass_hash == response.data.user_data.password) {
+		if (pass_hash == response.data.user_data.user_pass_hash) {
 			window.location = "./home_page.html";
 		} else {
 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-			alert("Invalid credentials");
+			// alert("Invalid credentials");
 		}
 	} else if (response.data.message == "user not found") {
 		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";

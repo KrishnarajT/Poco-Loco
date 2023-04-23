@@ -9,15 +9,7 @@ const createHttpError = require("http-errors");
 const app = express();
 app.use(cors());
 
-// // Using express.urlencoded middleware
-// app.use(express.urlencoded({
-//     extended: true
-// }))
-
-// // Using express.json middleware
-// app.use(express.json())
-
-// 👇️ configure CORS
+// processing get request
 
 app.get("/", (req, res) => {
 	res.send("Hello World!");
@@ -34,16 +26,11 @@ app.get("/test", async (request, response) => {
 	response.send(result);
 });
 
+// processing post request
+
+// login
 app.post("/auth", async (request, response) => {
 	console.log(request.query);
-	// const result = await dbobj.checkUser(request.query.username);
-	// console.log(result);
-
-	// response.send("Hello World!");
-
-	// first step would be to check if the user exists in the database
-	// at the time when this function is called, the user has entered the password, and the client wants to know if the user exist.
-	// if the user exists, we send the salt, and the final password hash to the client. Or else we say user not found.
 
 	// check if the user exists in the database
 	const user_fate = await dbobj.checkUser(request.query.username);
@@ -61,7 +48,57 @@ app.post("/auth", async (request, response) => {
 	}
 });
 
-// app.use((req, res) => {
-// 	res.json({ message: "Hey! This is your server response!" });
-// });
+// signup
+app.post("/signup", async (request, response) => {
+	console.log(request.query);
+	// check if the user exists in the database
+	const user_fate = await dbobj.checkUser(request.query.username);
+	console.log("from the app.js file");
+	console.log(user_fate);
+
+
+	if (user_fate.message == "user not found") {
+		// push to database.
+		const signup_result = await dbobj.add_user(
+			request.query.username,
+			request.query.user_pass_hash,
+			request.query.user_email,
+			request.query.user_salt
+		);
+		if (signup_result) {
+			response.send({ message: "signup successful" });
+		} else {
+			response.send({ message: "signup failed" });
+		}
+	} else if (user_fate.message == "user found") {
+		// send a message to the client
+		response.send({ message: "user exists" });
+	}
+});
+
+// forgot password
+app.post("/forgot_password", async (request, response) => {
+	console.log(request.query);
+
+	// check if the user exists in the database
+	const user_fate = await dbobj.checkUser(request.query.username);
+	console.log("from the app.js file");
+	console.log(user_fate);
+	if (user_fate.message == "user not found") {
+		// send a message to the client
+		response.send({ message: "user not found" });
+	} else if (user_fate.message == "user found") {
+		// update the database.
+		const forgot_password_result = await dbobj.forgot_password(
+			request.query.username,
+			request.query.user_pass_hash
+		);
+		if (forgot_password_result) {
+			response.send({ message: "password updated" });
+		} else {
+			response.send({ message: "password update failed" });
+		}
+	}
+});
+
 module.exports = app;
