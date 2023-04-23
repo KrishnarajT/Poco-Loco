@@ -11,9 +11,9 @@ generateSalt = function (salt_length) {
 	return salt;
 };
 
-const salt = generateSalt(10);
+const salt = "Fbc%%23Oyh1w";
 console.log(salt);
-let password = 'qwer';
+let password = 'asdf';
 const pass_hash = new Hashes.SHA1().b64(
 	password + salt
 );

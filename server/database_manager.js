@@ -26,9 +26,9 @@ class DatabaseManager {
 
 	async test() {
 		console.log("Testing");
-
+		let hash = "s8qcQ76Hf3BMIOtP6fNMT7UQzt0=";
 		const query_result = await this.executeQuery(
-			"select * from user_login"
+			`select * from user_login`
 		).then(
 			(result) => {
 				// console.log(result);

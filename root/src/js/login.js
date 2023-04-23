@@ -98,20 +98,21 @@ async function check_user() {
 			return error;
 		});
 
-	console.log(response.data);
+	// console.log(response.data);
+	console.log('user salt from the response');
+	console.log(response.data.user_data[0].user_salt)
 
 	// check if the user exists in the database
 	if (response.data.message == "user found") {
 		console.log("user found");
 		const pass_hash = new Hashes.SHA1().b64(
-			password + response.data.user_data.user_salt
+			password + response.data.user_data[0].user_salt
 		);
 		console.log(password);
-		console.log(response.data.user_data)
 		console.log(pass_hash);
 
 		// check if the password is correct
-		if (pass_hash == response.data.user_data.user_pass_hash) {
+		if (pass_hash == response.data.user_data[0].user_pass_hash) {
 			window.location = "./home_page.html";
 		} else {
 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
