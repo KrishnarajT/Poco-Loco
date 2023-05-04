@@ -93,14 +93,11 @@ async function check_user() {
 		.then((response) => {
 			return response;
 		})
-		.catch(function (error) {
+		.catch((error) => {
 			console.error(error);
+			alert("server not running!")
 			return error;
 		});
-
-	// console.log(response.data);
-	console.log('user salt from the response');
-	console.log(response.data.user_data[0].user_salt)
 
 	// check if the user exists in the database
 	if (response.data.message == "user found") {
@@ -116,7 +113,7 @@ async function check_user() {
 			window.location = "./home_page.html";
 		} else {
 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-			// alert("Invalid credentials");
+			alert("Invalid credentials");
 		}
 	} else if (response.data.message == "user not found") {
 		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";
