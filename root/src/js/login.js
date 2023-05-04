@@ -110,10 +110,17 @@ async function check_user() {
 
 		// check if the password is correct
 		if (pass_hash == response.data.user_data[0].user_pass_hash) {
-			window.location = "./home_page.html";
+			console.log("password correct");
+			// set the cookie
+			document.cookie = `user_id=${response.data.user_data[0].user_id}; expires=Thu, 18 Dec 2021 12:00:00 UTC; path=/`;
+			// comment to the user
+			comment.innerHTML = "Login Successful! Redirecting to Home Page!";
+			// setTimeout(() => {
+			// 	window.location = "./home_page.html";
+			// }, 500);
 		} else {
 			comment.innerHTML = "Invalid Credentials! Try Again or Sign Up!";
-			alert("Invalid credentials");
+			// alert("Invalid credentials");
 		}
 	} else if (response.data.message == "user not found") {
 		comment.innerHTML = "User Doesnt Exist! Try Again or Sign Up!";

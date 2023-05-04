@@ -4,12 +4,11 @@ comment.innerHTML = "Enter your credentials to Signup!";
 username = document.getElementById("username");
 password = document.getElementById("password");
 confirmation_password = document.getElementById("c_password");
-email = document.getElementById("email")
+email = document.getElementById("email");
 register = document.getElementById("register");
 base_url = "http://localhost:3000";
 
 let checker = [false, false, false, false];
-
 
 // function to generate a random salt
 generateSalt = function (salt_length) {
@@ -117,8 +116,11 @@ register.addEventListener("click", async () => {
 		// check if the user exists in the database
 		if (response.data.message == "signup successful") {
 			console.log("signup successful");
+			comment.innerHTML = "Signup Successful! Redirecting to Login Page!";
 			// redirect to login page
-			window.location = "./login.html";
+			setTimeout(() => {
+				window.location = "./login.html";
+			}, 3000);
 		} else if (response.data.message == "user exists") {
 			comment.innerHTML = "User Already Exists!";
 		} else {
