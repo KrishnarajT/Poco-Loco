@@ -75,6 +75,7 @@ email.addEventListener("input", () => {
 		checker[3] = false;
 	} else if (email.value.includes("~`!#$%^&*()+=[]{}\\|;:'\",<>/?")) {
 		comment.innerHTML = "Email must not contain special characters!";
+		checker[3] = false;
 	} else {
 		comment.innerHTML = "Enter your credentials to Signup!";
 		checker[3] = true;

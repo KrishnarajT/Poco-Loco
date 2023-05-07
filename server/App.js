@@ -3,9 +3,9 @@
 
 const express = require("express");
 const dbobj = require("./database_manager");
+const send_mail = require("./send_mail");
 const cors = require("cors");
 const createHttpError = require("http-errors");
-
 const app = express();
 app.use(cors());
 
@@ -56,7 +56,6 @@ app.post("/signup", async (request, response) => {
 	console.log("from the app.js file");
 	console.log(user_fate);
 
-
 	if (user_fate.message == "user not found") {
 		// push to database.
 		const signup_result = await dbobj.add_user(
@@ -76,29 +75,56 @@ app.post("/signup", async (request, response) => {
 	}
 });
 
-// forgot password
-app.post("/forgot_password", async (request, response) => {
+app.post("/send_email", async (request, response) => {
 	console.log(request.query);
-
 	// check if the user exists in the database
-	const user_fate = await dbobj.checkUser(request.query.username);
+	const user_fate = await dbobj.checkUserEmail(request.query.user_email);
+	console.log("from the app.js file");
+	console.log(user_fate);
+	if (user_fate.message == "user not found") {
+		// send a message to the client
+		response.send({ message: "email not sent" });
+	} else if (user_fate.message == "user found") {
+		// send the salt and the final password hash to the client
+		await send_mail(
+			request.query.user_email,
+			"Password Reset",
+			request.query.user_otp
+		)
+			.then((res) => {
+				console.log(res);
+				response.send({ message: "email sent" })
+				dbobj.add_otp(request.query.user_otp, user_fate[0].user_id);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+
+	}
+});
+
+app.post("/reset_password", async (request, response) => {
+	console.log(request.query);
+	// check if the user exists in the database
+	const user_fate = await dbobj.checkUserEmail(request.query.user_email);
 	console.log("from the app.js file");
 	console.log(user_fate);
 	if (user_fate.message == "user not found") {
 		// send a message to the client
 		response.send({ message: "user not found" });
 	} else if (user_fate.message == "user found") {
-		// update the database.
-		const forgot_password_result = await dbobj.forgot_password(
-			request.query.username,
-			request.query.user_pass_hash
+		// send the salt and the final password hash to the client
+		const reset_result = await dbobj.reset_pass(
+			request.query.user_hash,
+			request.query.user_salt,
+			user_fate[0].user_id,
+			request.query.user_otp
 		);
-		if (forgot_password_result) {
-			response.send({ message: "password updated" });
+		if (reset_result) {
+			response.send({ message: "password reset successful" });
 		} else {
-			response.send({ message: "password update failed" });
+			response.send({ message: "otp invalid" });
 		}
 	}
 });
-
 module.exports = app;
