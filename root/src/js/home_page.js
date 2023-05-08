@@ -3,8 +3,9 @@ search_bar = document.getElementById("search-bar");
 search_button = document.getElementById("search-button");
 player = document.getElementById("player");
 search_comment = document.getElementById("search-comment");
+mainplayer = document.getElementById("mainplaybutton");
+// ytplayer = document.getElementById("ytplayer");
 
-results_table_div.classList.add("hidden");
 results_table_div.classList.add("hidden");
 search_comment.innerHTML = "Get started by searching for a song!";
 
@@ -39,7 +40,7 @@ function initamp(title, album, artist, url, cover_art_url) {
 				cover_art_url: cover_art_url,
 			},
 		],
-	});
+    });
 }
 class SongResult {
 	constructor(
@@ -48,9 +49,11 @@ class SongResult {
 		primaryArtistName,
 		primaryArtistID,
 		songLength,
-		imageUrl
+		imageUrl,
+		songID
 	) {
 		this.songName = songName;
+		this.songId = songID;
 		this.artistName = artistName;
 		this.songLength = songLength;
 		this.imageUrl = imageUrl;
@@ -89,9 +92,60 @@ class SongResult {
 		songTitle.classList.add("hover:underline");
 		songTitle.textContent = this.songName;
 		songTitle.onclick = async () => {
-            console.log("clicked", this.songName);
-            player.classList.add("main-player-animate-up");
-            initamp(this.songName, "album", this.artistName, "url", this.imageUrl);
+			console.log("clicked", this.songName);
+			player.classList.add("main-player-animate-up");
+			initamp(
+				this.songName,
+				"album",
+				this.artistName,
+				"url",
+				this.imageUrl
+			);
+			const response = await axios
+				.post(
+					`${base_url}/download_song`,
+					{},
+					{
+						params: {
+							song_id: this.songId,
+						},
+					}
+				)
+				.then((response) => {
+					return response;
+				})
+				.catch((error) => {
+					console.error(error);
+					alert("server not running!");
+					return error;
+				});
+			console.log(response);
+			initamp(
+				this.songName,
+				response.data.song.album.full_title,
+				this.artistName,
+				"url",
+				// response.data.media[0].url,
+				this.imageUrl
+			);
+			// console.log(
+			// 	"playinggggggggggggggggggggggggggggggggggggggggggggggg"
+			// );
+            // const medias = response.data.song.media;
+			// // iterate through media and find youtube as provider.
+			// let linkurl = "";
+            // for (let i = 0; i < medias.length; i++) {
+            //     console.log(medias[i]);
+			// 	if (medias[i].provider === "youtube") {
+			// 		linkurl = medias[i].url;
+			// 		break;
+			// 	}
+			// }
+			// // extract video id
+			// const video_id = response.data.song.media[0].url.split("v=")[1];
+			// // create embed link
+			// const embed_link = `https://www.youtube.com/embed/${video_id}?enablejsapi=1&version=3&playerapiid=ytplayer`;
+			// ytplayer.src = embed_link;
 		};
 
 		const artistName = document.createElement("div");
@@ -216,7 +270,8 @@ async function search_songs() {
 			song.primary_artist,
 			song.primary_artist_id,
 			song.duration,
-			song.image
+			song.image,
+			song.id
 		);
 		results.push(songResult.createDiv());
 		results_table_div.appendChild(results[i]);
@@ -237,4 +292,55 @@ search_button.addEventListener("click", async () => {
 	if (search_bar.value != "") {
 		search_songs();
 	}
+});
+
+$(".amplitude-paused").click(function () {
+	console.log("clicked paused");
+	$(".youtube-video")[0].contentWindow.postMessage(
+		'{"event":"command","func":"' + "playVideo" + '","args":""}',
+		"*"
+	);
+	// $("#mainplaybutton").addClass("pause-video");
+	//             $("#mainplaybutton").removeClass("play-video");
+});
+
+// $(".stop-video").click(function () {
+// 	$(".youtube-video")[0].contentWindow.postMessage(
+// 		'{"event":"command","func":"' + "stopVideo" + '","args":""}',
+// 		"*"
+// 	);
+// });
+
+$(".amplitude-playing").click(function () {
+	console.log("clicked playing");
+	$(".youtube-video")[0].contentWindow.postMessage(
+		'{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+		"*"
+	);
+	// $("#mainplaybutton").addClass("play-video");
+	//         $("#mainplaybutton").removeClass("pause-video");
+});
+
+$("#mainplaybutton").click(function () {
+	console.log("clicked");
+	// print classes
+	console.log($("#mainplaybutton").attr("class"));
+});
+
+mainplayer.addEventListener("click", () => {
+	if (mainplayer.classList.contains("amplitude-playing")) {
+		console.log("paused");
+		$(".youtube-video")[0].contentWindow.postMessage(
+			'{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+			"*"
+		);
+	} else if (mainplayer.classList.contains("amplitude-paused")) {
+		console.log("playing");
+
+		$(".youtube-video")[0].contentWindow.postMessage(
+			'{"event":"command","func":"' + "playVideo" + '","args":""}',
+			"*"
+		);
+	}
+	console.log("clicked");
 });

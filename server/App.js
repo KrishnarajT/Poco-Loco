@@ -138,8 +138,7 @@ app.post("/search_query", async (request, response) => {
 	console.log(results);
 	final_results = [];
 	for (let i = 0; i < results.length; i++) {
-		// const song_info = await genius.get_song_info(results[i].result.id);
-		// console.log(song_info);
+
 		final_results.push({
 			id: results[i].result.id,
 			title: results[i].result.title,
@@ -170,6 +169,17 @@ app.post("/this_is_the_artist", async (request, response) => {
 	artist_id = request.query.artist_id;
 	artist_name = request.query.artist_name;
 	response.send("ok");
+});
+
+app.post("/download_song", async (request, response) => {
+	console.log(request.query);
+	const song_info = await genius.get_song_info(request.query.song_id);
+	console.log(song_info);
+	// song_info = {
+	// 	'album': 'hi',
+	// 	'url': 'hi'
+	// }
+	response.send(song_info);
 });
 
 
