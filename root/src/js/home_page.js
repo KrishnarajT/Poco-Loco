@@ -128,24 +128,24 @@ class SongResult {
 				// response.data.media[0].url,
 				this.imageUrl
 			);
-			// console.log(
-			// 	"playinggggggggggggggggggggggggggggggggggggggggggggggg"
-			// );
-            // const medias = response.data.song.media;
-			// // iterate through media and find youtube as provider.
-			// let linkurl = "";
-            // for (let i = 0; i < medias.length; i++) {
-            //     console.log(medias[i]);
-			// 	if (medias[i].provider === "youtube") {
-			// 		linkurl = medias[i].url;
-			// 		break;
-			// 	}
-			// }
-			// // extract video id
-			// const video_id = response.data.song.media[0].url.split("v=")[1];
-			// // create embed link
-			// const embed_link = `https://www.youtube.com/embed/${video_id}?enablejsapi=1&version=3&playerapiid=ytplayer`;
-			// ytplayer.src = embed_link;
+			console.log(
+				"playinggggggggggggggggggggggggggggggggggggggggggggggg"
+			);
+            const medias = response.data.song.media;
+			// iterate through media and find youtube as provider.
+			let linkurl = "";
+            for (let i = 0; i < medias.length; i++) {
+                console.log(medias[i]);
+				if (medias[i].provider === "youtube") {
+					linkurl = medias[i].url;
+					break;
+				}
+			}
+			// extract video id
+			const video_id = response.data.song.media[0].url.split("v=")[1];
+			// create embed link
+			const embed_link = `https://www.youtube.com/embed/${video_id}?enablejsapi=1&version=3&playerapiid=ytplayer`;
+			ytplayer.src = embed_link;
 		};
 
 		const artistName = document.createElement("div");
