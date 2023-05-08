@@ -3,12 +3,16 @@
 
 const express = require("express");
 const dbobj = require("./database_manager");
+const genius = require("./search_genius");
+const get_images = require("./image-scrapping")
 const send_mail = require("./send_mail");
 const cors = require("cors");
 const createHttpError = require("http-errors");
 const app = express();
 app.use(cors());
 
+let artist_name = "Taylor Swift";
+let artist_id = "1177";
 // processing get request
 
 app.get("/", (req, res) => {
@@ -127,4 +131,46 @@ app.post("/reset_password", async (request, response) => {
 		}
 	}
 });
+
+app.post("/search_query", async (request, response) => {
+	console.log(request.query);
+	results = await genius.search_query(request.query.query);
+	console.log(results);
+	final_results = [];
+	for (let i = 0; i < results.length; i++) {
+		// const song_info = await genius.get_song_info(results[i].result.id);
+		// console.log(song_info);
+		final_results.push({
+			id: results[i].result.id,
+			title: results[i].result.title,
+			artist: results[i].result.artist_names,
+			primary_artist: results[i].result.primary_artist.name,
+			primary_artist_id: results[i].result.primary_artist.id,
+			url: results[i].result.url,
+			image: results[i].result.header_image_url,
+		});
+	}
+	response.send(final_results);
+});
+
+app.post("/get_artist_description", async (request, response) => {
+	console.log(request.query);
+	console.log(artist_id);
+	console.log(artist_name);
+	results = await genius.get_artist(artist_id);
+	console.log(results);
+	// get images
+	const images = await get_images(artist_name + "Performing");
+	results.images = images;
+	response.send(results);
+});
+
+app.post("/this_is_the_artist", async (request, response) => {
+	console.log(request.query);
+	artist_id = request.query.artist_id;
+	artist_name = request.query.artist_name;
+	response.send("ok");
+});
+
+
 module.exports = app;

@@ -1,5 +1,4 @@
 // file for managing all transactions with the database.
-const { query } = require("express");
 const mysql = require("mysql");
 
 class DatabaseManager {

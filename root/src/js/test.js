@@ -1,4 +1,4 @@
-// const axios = require("axios");
+const axios = require("axios");
 
 // const options = {
 // 	method: "GET",
@@ -36,7 +36,7 @@ const options = {
 const headers = { Authorization: `Bearer ${token}` };
 
 const params = {
-    'text_format': 'plain',
+    'text_format': 'html',
     'q': 'shape of you',
     // 'id': '16775'
 }
@@ -69,3 +69,21 @@ axios.get("https://api.genius.com/search", { headers, params }).then((res) => {
 // // };
 
 // // getUsers();
+
+const Genius = require("genius-lyrics");
+const Client = new Genius.Client(token);
+
+async function getsong() {
+	const searches = await Client.songs.search("faded");
+	// Pick first one
+	const firstSong = searches[0];
+	console.log("About the Song:\n", firstSong, "\n");
+	// Ok lets get the lyrics
+	const lyrics = await firstSong.lyrics();
+	console.log("Lyrics of the Song:\n", lyrics, "\n");
+	const artist = await Client.artists.get(456537);
+	console.log("About the Artist:\n", artist, "\n");
+	// return searches;
+}
+
+getsong();
