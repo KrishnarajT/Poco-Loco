@@ -1,144 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/root/resources/images/favicon.png" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/root/resources/images/favicon.png"
+    />
     <link rel="stylesheet" href="../src/css/style.css" />
     <title>Poco Loco</title>
     <style>
-        body {
-            height: 100vh;
-            background-color: #4158d0;
-            background-image: url("../resources/images/2707913.jpg");
+      body {
+        height: 100vh;
+        background-color: #4158d0;
+        background-image: url("../resources/images/2707913.jpg");
 
-            /* will-change: scroll-position; */
-            /* background-size: 500%; */
-            /* animation: gradient 10s ease-in-out 20 alternate-reverse; */
-            overflow: hidden;
+        /* will-change: scroll-position; */
+        /* background-size: 500%; */
+        /* animation: gradient 10s ease-in-out 20 alternate-reverse; */
+        overflow: hidden;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0%;
         }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
-
-            100% {
-                background-position: 100%;
-            }
+        100% {
+          background-position: 100%;
         }
+      }
 
-        .logo {
-            background-image: url("../resources/images/logo_dark.png");
-            background-size: 100%;
-            background-repeat: no-repeat;
-            width: 40rem;
-            height: 10rem;
-            /* margin: 2rem; */
-        }
+      .logo {
+        background-image: url("../resources/images/logo_dark.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 40rem;
+        height: 10rem;
+        /* margin: 2rem; */
+      }
 
-        .bg-blue-100 {
-            background-color: hsla(216, 73%, 75%, 0.719);
-        }
+      .bg-blue-100 {
+        background-color: hsla(216, 73%, 75%, 0.719);
+      }
 
-        .bg-white {
-            background-color: hsla(213, 32%, 89%, 0.884);
-        }
+      .bg-white {
+        background-color: hsla(213, 32%, 89%, 0.884);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- div for the logo on top left corner containing an svg -->
     <div class="flex justify-center bg-blue-100">
-        <div class="logo self-center"></div>
+      <div class="logo self-center"></div>
     </div>
     <!-- Container -->
     <!-- center vertically -->
     <div class="flex items-center align-middle">
-        <!-- Container -->
-        <div class="container mx-auto">
-            <div class="my-12 flex justify-center px-6">
-                <!-- Row -->
-                <div class="flex w-full lg:w-11/12 xl:w-3/4">
-                    <!-- Col -->
-                    <!-- Col -->
-                    <div class="w-full rounded-2xl bg-white p-6 lg:w-7/12 lg:rounded-l-none">
-                        <h3 class="pt-4 text-center text-3xl">Reset your Password!</h3>
-                        <br />
-                        <form class="mb-4 rounded-2xl bg-transparent px-8 pb-8 pt-6">
-                            <div class="mb-4 md:mb-0 md:mr-2">
-                                <label class="mb-2 block text-xl font-bold text-gray-700" for="password">
-                                    Enter your Mail ID
-                                </label>
-                                <input
-                                    class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
-                                    id="email" type="email" />
-                            </div>
-                            <div class="mb-4 md:mb-0 md:mr-2">
-                                <label class="mb-2 block text-xl font-bold text-gray-700" for="password">
-                                    Enter OTP from your Mail
-                                </label>
-                                <input
-                                    class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
-                                    id="otp" type="password" placeholder="******" />
-                            </div>
-                            <div class="mb-4 md:flex md:justify-between w-full">
-                            </div>
-                            <div class="mb-4">
-                            </div>
-                            <div class="mb-4 md:flex md:justify-between">
-
-                                <div class="mb-4 md:mb-0 md:mr-2">
-                                    <label class="mb-2 block text-xl font-bold text-gray-700" for="password">
-                                        Password
-                                    </label>
-                                    <input
-                                        class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
-                                        id="password" type="password" placeholder="******************" />
-                                    <p class="text-lg italic text-red-800" id="comment">
-                                        Please choose a password.
-                                    </p>
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="mb-2 block text-xl font-bold text-gray-700" for="c_password">
-                                        Confirm Password
-                                    </label>
-                                    <input
-                                        class="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
-                                        id="c_password" type="password" placeholder="******************" />
-                                </div>
-                            </div>
-                            <div class="mb-6 text-center">
-                                <button
-                                    class="focus:shadow-outline w-full rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-                                    type="button" id="submit_button">
-                                    Change Password
-                                </button>
-                            </div>
-                            <hr class="mb-6 border-t" />
-                            <!-- <div class="text-center">
+      <!-- Container -->
+      <div class="container mx-auto">
+        <div class="my-12 flex justify-center px-6">
+          <!-- Row -->
+          <div class="flex w-full lg:w-11/12 xl:w-3/4">
+            <!-- Col -->
+            <!-- Col -->
+            <div
+              class="w-full rounded-2xl bg-white p-6 lg:w-7/12 lg:rounded-l-none"
+            >
+              <h3 class="pt-4 text-center text-3xl">Reset your Password!</h3>
+              <br />
+              <form class="mb-4 rounded-2xl bg-transparent px-8 pb-8 pt-6">
+                <div class="mb-4 md:mb-0 md:mr-2">
+                  <label
+                    class="mb-2 block text-xl font-bold text-gray-700"
+                    for="password"
+                  >
+                    Enter your Mail ID
+                  </label>
+                  <input
+                    class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+                    id="email"
+                    type="email"
+                  />
+                </div>
+                <div class="mb-4 md:mb-0 md:mr-2">
+                  <label
+                    class="mb-2 block text-xl font-bold text-gray-700"
+                    for="password"
+                  >
+                    Enter OTP from your Mail
+                  </label>
+                  <input
+                    class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+                    id="otp"
+                    type="password"
+                    placeholder="******"
+                  />
+                </div>
+                <div class="mb-4 w-full md:flex md:justify-between"></div>
+                <div class="mb-4"></div>
+                <div class="mb-4 md:flex md:justify-between">
+                  <div class="mb-4 md:mb-0 md:mr-2">
+                    <label
+                      class="mb-2 block text-xl font-bold text-gray-700"
+                      for="password"
+                    >
+                      Password
+                    </label>
+                    <input
+                      class="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+                      id="password"
+                      type="password"
+                      placeholder="******************"
+                    />
+                    <p class="text-lg italic text-red-800" id="comment">
+                      Please choose a password.
+                    </p>
+                  </div>
+                  <div class="md:ml-2">
+                    <label
+                      class="mb-2 block text-xl font-bold text-gray-700"
+                      for="c_password"
+                    >
+                      Confirm Password
+                    </label>
+                    <input
+                      class="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 text-xl leading-tight text-gray-700 shadow focus:outline-none"
+                      id="c_password"
+                      type="password"
+                      placeholder="******************"
+                    />
+                  </div>
+                </div>
+                <div class="mb-6 text-center">
+                  <button
+                    class="focus:shadow-outline w-full rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+                    type="button"
+                    id="submit_button"
+                  >
+                    Change Password
+                  </button>
+                </div>
+                <hr class="mb-6 border-t" />
+                <!-- <div class="text-center">
                                 <a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
                                     href="forgot-pass.html">
                                     Forgot Password?
                                 </a>
                             </div> -->
-                            <div class="text-center">
-                                <a class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
-                                    href="login.html">
-                                    Did you miraculously happen to remember your password? Login!
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+                <div class="text-center">
+                  <a
+                    class="inline-block align-baseline text-xl text-blue-500 hover:text-blue-800"
+                    href="login.html"
+                  >
+                    Did you miraculously happen to remember your password?
+                    Login!
+                  </a>
                 </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <script type="text/javascript" src="http://cdn.rawgit.com/h2non/jsHashes/master/hashes.js"></script>
+    <script
+      type="text/javascript"
+      src="http://cdn.rawgit.com/h2non/jsHashes/master/hashes.js"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.6/axios.js"></script>
     <script src="../src/js/password_reset.js"></script>
-</body>
-
+  </body>
 </html>
