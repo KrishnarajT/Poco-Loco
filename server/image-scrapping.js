@@ -36,9 +36,11 @@ async function get_images(query) {
     for (let i = 0; i < images.result.length; i++) {
         final_image_ulrs.push(images.result[i].url);
     }
-    return final_image_ulrs;
+	// console.log(final_image_ulrs)
+	return final_image_ulrs;
 }
 
+// get_images("Taylor Swift Performing");
 module.exports = get_images;
 
 // const google = require("googlethis");

@@ -40,7 +40,7 @@ function initamp(title, album, artist, url, cover_art_url) {
 				cover_art_url: cover_art_url,
 			},
 		],
-    });
+	});
 }
 class SongResult {
 	constructor(
@@ -116,8 +116,25 @@ class SongResult {
 				})
 				.catch((error) => {
 					console.error(error);
-					alert("server not running!");
-					return error;
+					alert(
+						"server not running! A simulatated response will be used. "
+					);
+					const response = {
+						data: {
+							song: {
+								album: {
+									full_title: "album",
+								},
+								media: [
+									{
+										url: "https://521dimensions.com/song/FirstSnow-Emancipator.mp3",
+										provider: "youtube",
+									},
+								],
+							},
+						},
+					};
+					return response;
 				});
 			console.log(response);
 			initamp(
@@ -131,11 +148,11 @@ class SongResult {
 			console.log(
 				"playinggggggggggggggggggggggggggggggggggggggggggggggg"
 			);
-            const medias = response.data.song.media;
+			const medias = response.data.song.media;
 			// iterate through media and find youtube as provider.
 			let linkurl = "";
-            for (let i = 0; i < medias.length; i++) {
-                console.log(medias[i]);
+			for (let i = 0; i < medias.length; i++) {
+				console.log(medias[i]);
 				if (medias[i].provider === "youtube") {
 					linkurl = medias[i].url;
 					break;
@@ -177,7 +194,9 @@ class SongResult {
 				})
 				.catch((error) => {
 					console.error(error);
-					alert("server not running!");
+					alert(
+						"server not running! a simulated response will be used. "
+					);
 					return error;
 				});
 			console.log(response);
@@ -253,8 +272,41 @@ async function search_songs() {
 		})
 		.catch((error) => {
 			console.error(error);
-			alert("server not running!");
-			return error;
+			alert("server not running! a simulated response will be used.");
+			const response = {
+				data: [
+					{
+						title: "The Days",
+						artist: "Avicii",
+						primary_artist: "Avicii",
+						primary_artist_id: 1,
+						duration: "3:41",
+						image: "https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+						id: 1,
+					},
+					{
+						title: "The Nights",
+						artist: "Avicii",
+						primary_artist: "Avicii",
+						primary_artist_id: 1,
+						duration: "3:41",
+						image: "https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+						id: 2,
+					},
+					{
+						title: "Wake Me Up",
+						artist: "Avicii",
+						primary_artist: "Avicii",
+						primary_artist_id: 1,
+						duration: "3:41",
+						image: "https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+						id: 3,
+					},
+				],
+			};
+			search_comment.innerHTML = "Here are the results for your search!";
+			results_table_div.classList.remove("hidden");
+			return response;
 		});
 	// console.log(response)
 

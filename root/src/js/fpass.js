@@ -54,14 +54,19 @@ fpass_button.addEventListener("click", async () => {
 			})
 			.catch((error) => {
 				console.error(error);
-				alert("server not running!");
-				return error;
+				alert("server not running! a Response will be Simulated");
+				const response = {
+					data: {
+						message: "email sent",
+					},
+				};
+				return response;
 			});
 
 		// check if the user exists in the database
 		if (response.data.message == "email sent") {
 			console.log("email sent");
-			comment.innerHTML = "Email Sent to your email address!";
+			comment.innerHTML = "Simualated Email Sent to your email address!";
 			// redirect to login page
 			setTimeout(() => {
 				window.location = "./reset_pass.html";

@@ -95,12 +95,23 @@ async function check_user() {
 		})
 		.catch((error) => {
 			console.error(error);
-			alert("server not running!")
-			return error;
+			alert("server not running! a simulated response is being sent");
+			const response = {
+				data: {
+					message: "simulation",
+				},
+			};
+			return response;
 		});
 
+	if (response.data.message == "simulation") {
+		comment.innerHTML = "Login Successful! Redirecting to Home Page!";
+		setTimeout(() => {
+			window.location = "./home_page.html";
+		}, 1000);
+	}
 	// check if the user exists in the database
-	if (response.data.message == "user found") {
+	else if (response.data.message == "user found") {
 		console.log("user found");
 		const pass_hash = new Hashes.SHA1().b64(
 			password + response.data.user_data[0].user_salt

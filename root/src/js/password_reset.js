@@ -101,8 +101,13 @@ submit_button.addEventListener("click", async () => {
 			})
 			.catch((error) => {
 				console.error(error);
-				alert("server not running!");
-				return error;
+				alert("server not running! A simulated response is sent!");
+				const response = {
+					data: {
+						message: "password reset successful",
+					},
+				};
+				return response;
 			});
 
 		// check if the user exists in the database

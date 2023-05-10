@@ -110,8 +110,13 @@ register.addEventListener("click", async () => {
 			})
 			.catch((error) => {
 				console.error(error);
-				alert("server not running!");
-				return error;
+				alert("server not running! A simluated response is being sent!");
+				const response = {
+					data: {
+						message: "signup successful",
+					},
+				};
+				return response;
 			});
 
 		// check if the user exists in the database
